@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */; };
 		53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */; };
-		53BCB43F29DE1F9700B9A270 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43E29DE1F9700B9A270 /* ViewController.swift */; };
+		53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */; };
 		53BCB44429DE1F9900B9A270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB44329DE1F9900B9A270 /* Assets.xcassets */; };
 		53BCB45229DE1F9900B9A270 /* minha_saudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB45129DE1F9900B9A270 /* minha_saudeTests.swift */; };
 		53BCB45C29DE1F9900B9A270 /* minha_saudeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB45B29DE1F9900B9A270 /* minha_saudeUITests.swift */; };
 		53BCB45E29DE1F9900B9A270 /* minha_saudeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB45D29DE1F9900B9A270 /* minha_saudeUITestsLaunchTests.swift */; };
+		53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB46B29DE2AB600B9A270 /* HomeViewController.swift */; };
+		53BCB47129DE2DA500B9A270 /* QuickAcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB47029DE2DA500B9A270 /* QuickAcessView.swift */; };
+		9B5D2A9C9DC47D27BF75864F /* libPods-minha_saude.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		431B1801E21904C6EB6BC984 /* Pods-minha_saude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minha_saude.release.xcconfig"; path = "Target Support Files/Pods-minha_saude/Pods-minha_saude.release.xcconfig"; sourceTree = "<group>"; };
 		53BCB43729DE1F9700B9A270 /* minha_saude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minha_saude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53BCB43E29DE1F9700B9A270 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		53BCB44329DE1F9900B9A270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53BCB44829DE1F9900B9A270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53BCB44D29DE1F9900B9A270 /* minha_saudeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = minha_saudeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +49,10 @@
 		53BCB45729DE1F9900B9A270 /* minha_saudeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = minha_saudeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCB45B29DE1F9900B9A270 /* minha_saudeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minha_saudeUITests.swift; sourceTree = "<group>"; };
 		53BCB45D29DE1F9900B9A270 /* minha_saudeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minha_saudeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		53BCB46B29DE2AB600B9A270 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		53BCB47029DE2DA500B9A270 /* QuickAcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAcessView.swift; sourceTree = "<group>"; };
+		5472FCCBA75A6E6BB48B6B4B /* Pods-minha_saude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minha_saude.debug.xcconfig"; path = "Target Support Files/Pods-minha_saude/Pods-minha_saude.debug.xcconfig"; sourceTree = "<group>"; };
+		DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-minha_saude.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B5D2A9C9DC47D27BF75864F /* libPods-minha_saude.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EE7D19CD4E9B43C29047450 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5472FCCBA75A6E6BB48B6B4B /* Pods-minha_saude.debug.xcconfig */,
+				431B1801E21904C6EB6BC984 /* Pods-minha_saude.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		25EEE28424259A6D5E2341FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		53BCB42E29DE1F9700B9A270 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +105,8 @@
 				53BCB45029DE1F9900B9A270 /* minha_saudeTests */,
 				53BCB45A29DE1F9900B9A270 /* minha_saudeUITests */,
 				53BCB43829DE1F9700B9A270 /* Products */,
+				0EE7D19CD4E9B43C29047450 /* Pods */,
+				25EEE28424259A6D5E2341FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +123,10 @@
 		53BCB43929DE1F9700B9A270 /* minha_saude */ = {
 			isa = PBXGroup;
 			children = (
+				53BCB46A29DE2A9F00B9A270 /* Home */,
 				53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */,
 				53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */,
-				53BCB43E29DE1F9700B9A270 /* ViewController.swift */,
+				53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */,
 				53BCB44329DE1F9900B9A270 /* Assets.xcassets */,
 				53BCB44829DE1F9900B9A270 /* Info.plist */,
 			);
@@ -121,6 +150,23 @@
 			path = minha_saudeUITests;
 			sourceTree = "<group>";
 		};
+		53BCB46A29DE2A9F00B9A270 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				53BCB46F29DE2D2200B9A270 /* QuickAccess */,
+				53BCB46B29DE2AB600B9A270 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		53BCB46F29DE2D2200B9A270 /* QuickAccess */ = {
+			isa = PBXGroup;
+			children = (
+				53BCB47029DE2DA500B9A270 /* QuickAcessView.swift */,
+			);
+			path = QuickAccess;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,6 +174,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53BCB46129DE1F9900B9A270 /* Build configuration list for PBXNativeTarget "minha_saude" */;
 			buildPhases = (
+				8B07426DA32001E56CFBD537 /* [CP] Check Pods Manifest.lock */,
 				53BCB43329DE1F9700B9A270 /* Sources */,
 				53BCB43429DE1F9700B9A270 /* Frameworks */,
 				53BCB43529DE1F9700B9A270 /* Resources */,
@@ -245,14 +292,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8B07426DA32001E56CFBD537 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-minha_saude-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		53BCB43329DE1F9700B9A270 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53BCB43F29DE1F9700B9A270 /* ViewController.swift in Sources */,
+				53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */,
 				53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */,
+				53BCB47129DE2DA500B9A270 /* QuickAcessView.swift in Sources */,
 				53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */,
+				53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +479,7 @@
 		};
 		53BCB46229DE1F9900B9A270 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5472FCCBA75A6E6BB48B6B4B /* Pods-minha_saude.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -431,6 +506,7 @@
 		};
 		53BCB46329DE1F9900B9A270 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 431B1801E21904C6EB6BC984 /* Pods-minha_saude.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

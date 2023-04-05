@@ -1,0 +1,6 @@
+module Pods_minha_saude {
+  umbrella header "Pods-minha_saude-umbrella.h"
+
+  export *
+  module * { export * }
+}
