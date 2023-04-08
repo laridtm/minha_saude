@@ -25,11 +25,10 @@ class HomeViewController: UIViewController {
     private func setupStackView() {
         view.addSubview(stackView)
         
-        //TODO: Tirar o ! da UIImage
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Perfil", quickAccessImage: UIImage(named: "UserLight")!))
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Lembretes", quickAccessImage: UIImage(named: "ClockLight")!))
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Histórico", quickAccessImage: UIImage(named: "BookLight")!))
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Compartilhar", quickAccessImage: UIImage(named: "ExportLight")!))
+        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Perfil", quickAccessImage: Asset.userLight.image))
+        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Lembretes", quickAccessImage: Asset.clockLight.image))
+        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Histórico", quickAccessImage: Asset.bookLight.image))
+        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Compartilhar", quickAccessImage: Asset.exportLight.image))
     }
     
     private func setupConstraints() {
