@@ -6,7 +6,10 @@ class HomeViewController: UIViewController {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-//        stackView.alignment = .fill
+        stackView.alignment = .fill
+        stackView.distribution = .equalCentering
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 0, left: 10, bottom: 0, right: 10)
         stackView.spacing = 24
         return stackView
     }()
