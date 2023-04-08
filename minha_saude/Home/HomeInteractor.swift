@@ -3,18 +3,22 @@ protocol HomeInteractorBusinessLogic {
 }
 
 public final class HomeInteractor: HomeInteractorBusinessLogic {
-    public init() {}
+    private let router: HomeRoutingLogic
+    
+    public init(router: HomeRoutingLogic) {
+        self.router = router
+    }
     
     func didTouchQuickAccess(type: QuickAcessView.QuickAccessType) {
         switch type {
         case .profile:
-            print("Roteando para tela de perfil")
+            router.routeToProfile()
         case .reminders:
-            print("Roteando para tela de lembretes")
+            router.routeToReminders()
         case .history:
-            print("Roteando para tela de histórico")
+            router.routeToHistory()
         case .share:
-            print("Roteando para tela de compartilhamento")
+            router.shareHistory()
         }
     }
 }

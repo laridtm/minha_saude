@@ -35,13 +35,13 @@ public final class QuickAcessView: UIView {
         var image: UIImage {
             switch self {
             case .profile:
-                return Asset.userLight.image
+                return Asset.Assets.userLight.image
             case .reminders:
-                return Asset.clockLight.image
+                return Asset.Assets.clockLight.image
             case .history:
-                return Asset.bookLight.image
+                return Asset.Assets.bookLight.image
             case .share:
-                return Asset.exportLight.image
+                return Asset.Assets.exportLight.image
             }
         }
     }
@@ -52,7 +52,7 @@ public final class QuickAcessView: UIView {
     private let roundedView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.backgroundColor = .gray
+        view.backgroundColor = Asset.ColorAssets.lightGray.color
         view.frame = CGRect(x: 0, y: 0, width: Constants.roundedViewSize, height: Constants.roundedViewSize)
         view.layer.cornerRadius = view.frame.size.width / 2
         return view
@@ -67,7 +67,6 @@ public final class QuickAcessView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .blue
         label.textColor = .black
         label.textAlignment = .center
         return label
@@ -79,7 +78,6 @@ public final class QuickAcessView: UIView {
     public init(type: QuickAccessType) {
         quickAccessType = type
         super.init(frame: .zero)
-        backgroundColor = .green
         
         configure()
         setupConstraints()

@@ -12,7 +12,7 @@ class InitialViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Entrar", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .green //UIColor(cgColor: .init(red: 75, green: 175, blue: 80, alpha: 1)) //#4CAF50
+        button.backgroundColor = Asset.ColorAssets.brandGreen.color
         button.layer.cornerRadius = Constants.cornerRadius
         button.addTarget(self, action: #selector(enterApp), for: .touchUpInside)
         return button
@@ -28,7 +28,6 @@ class InitialViewController: UIViewController {
     @objc private func enterApp() {
         let homeViewController = HomeConfigurator().resolve()
         navigationController?.pushViewController(homeViewController, animated: true)
-        print("Entrar")
     }
     
     private func addEnterButton() {

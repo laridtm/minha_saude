@@ -24,11 +24,16 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum Asset {
-  public static let accentColor = ColorAsset(name: "AccentColor")
-  public static let bookLight = ImageAsset(name: "BookLight")
-  public static let clockLight = ImageAsset(name: "ClockLight")
-  public static let exportLight = ImageAsset(name: "ExportLight")
-  public static let userLight = ImageAsset(name: "UserLight")
+  public enum Assets {
+    public static let bookLight = ImageAsset(name: "BookLight")
+    public static let clockLight = ImageAsset(name: "ClockLight")
+    public static let exportLight = ImageAsset(name: "ExportLight")
+    public static let userLight = ImageAsset(name: "UserLight")
+  }
+  public enum ColorAssets {
+    public static let brandGreen = ColorAsset(name: "BrandGreen")
+    public static let lightGray = ColorAsset(name: "LightGray")
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

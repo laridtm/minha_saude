@@ -25,6 +25,7 @@
  xcassets:
    inputs:
      - minha_saude/Assets.xcassets
+     - minha_saude/ColorAssets.xcassets
    outputs:
      - templateName: swift5
        output: minha_saude/Assets.swift

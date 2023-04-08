@@ -4,7 +4,8 @@ public class HomeConfigurator {
     public init() {}
 
     public func resolve() -> UIViewController {
-        let interactor = HomeInteractor()
+        let router = HomeRouter()
+        let interactor = HomeInteractor(router: router)
         return HomeViewController(interactor: interactor)
     }
 }

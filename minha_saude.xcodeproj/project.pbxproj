@@ -15,10 +15,12 @@
 		53BCB45C29DE1F9900B9A270 /* minha_saudeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB45B29DE1F9900B9A270 /* minha_saudeUITests.swift */; };
 		53BCB45E29DE1F9900B9A270 /* minha_saudeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB45D29DE1F9900B9A270 /* minha_saudeUITestsLaunchTests.swift */; };
 		53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB46B29DE2AB600B9A270 /* HomeViewController.swift */; };
-		53BCB47129DE2DA500B9A270 /* QuickAcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB47029DE2DA500B9A270 /* QuickAcessView.swift */; };
+		53BCB47129DE2DA500B9A270 /* QuickAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB47029DE2DA500B9A270 /* QuickAccessView.swift */; };
 		53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C686E229E1B67E004D4EE0 /* Assets.swift */; };
 		53C686E529E1BEEE004D4EE0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C686E429E1BEEE004D4EE0 /* HomeInteractor.swift */; };
 		53C686E729E1C1F9004D4EE0 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C686E629E1C1F9004D4EE0 /* HomeConfigurator.swift */; };
+		53C686E929E1C4EF004D4EE0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C686E829E1C4EF004D4EE0 /* HomeRouter.swift */; };
+		53C686EB29E1C833004D4EE0 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */; };
 		9B5D2A9C9DC47D27BF75864F /* libPods-minha_saude.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */; };
 /* End PBXBuildFile section */
 
@@ -53,10 +55,12 @@
 		53BCB45B29DE1F9900B9A270 /* minha_saudeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minha_saudeUITests.swift; sourceTree = "<group>"; };
 		53BCB45D29DE1F9900B9A270 /* minha_saudeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minha_saudeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		53BCB46B29DE2AB600B9A270 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		53BCB47029DE2DA500B9A270 /* QuickAcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAcessView.swift; sourceTree = "<group>"; };
+		53BCB47029DE2DA500B9A270 /* QuickAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAccessView.swift; sourceTree = "<group>"; };
 		53C686E229E1B67E004D4EE0 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		53C686E429E1BEEE004D4EE0 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		53C686E629E1C1F9004D4EE0 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
+		53C686E829E1C4EF004D4EE0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		5472FCCBA75A6E6BB48B6B4B /* Pods-minha_saude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minha_saude.debug.xcconfig"; path = "Target Support Files/Pods-minha_saude/Pods-minha_saude.debug.xcconfig"; sourceTree = "<group>"; };
 		DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-minha_saude.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,6 +140,7 @@
 				53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */,
 				53BCB44329DE1F9900B9A270 /* Assets.xcassets */,
 				53BCB44829DE1F9900B9A270 /* Info.plist */,
+				53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */,
 			);
 			path = minha_saude;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				53BCB46B29DE2AB600B9A270 /* HomeViewController.swift */,
 				53C686E429E1BEEE004D4EE0 /* HomeInteractor.swift */,
 				53C686E629E1C1F9004D4EE0 /* HomeConfigurator.swift */,
+				53C686E829E1C4EF004D4EE0 /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -171,7 +177,7 @@
 		53BCB46F29DE2D2200B9A270 /* QuickAccess */ = {
 			isa = PBXGroup;
 			children = (
-				53BCB47029DE2DA500B9A270 /* QuickAcessView.swift */,
+				53BCB47029DE2DA500B9A270 /* QuickAccessView.swift */,
 			);
 			path = QuickAccess;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C686EB29E1C833004D4EE0 /* ColorAssets.xcassets in Resources */,
 				53BCB44429DE1F9900B9A270 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,8 +340,9 @@
 			files = (
 				53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */,
 				53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */,
+				53C686E929E1C4EF004D4EE0 /* HomeRouter.swift in Sources */,
 				53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */,
-				53BCB47129DE2DA500B9A270 /* QuickAcessView.swift in Sources */,
+				53BCB47129DE2DA500B9A270 /* QuickAccessView.swift in Sources */,
 				53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */,
 				53C686E729E1C1F9004D4EE0 /* HomeConfigurator.swift in Sources */,
 				53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */,
