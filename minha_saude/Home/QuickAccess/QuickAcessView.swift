@@ -9,7 +9,41 @@ public final class QuickAcessView: UIView {
         static let quickAccessViewHeight: CGFloat = 82
     }
     
+    public enum QuickAccessType {
+        case profile
+        case reminders
+        case history
+        case share
+        
+        var title: String {
+            switch self {
+            case .profile:
+                return "Perfil"
+            case .reminders:
+                return "Lembretes"
+            case .history:
+                return "Histórico"
+            case .share:
+                return "Compartilhar"
+            }
+        }
+        
+        var image: UIImage {
+            switch self {
+            case .profile:
+                return Asset.userLight.image
+            case .reminders:
+                return Asset.clockLight.image
+            case .history:
+                return Asset.bookLight.image
+            case .share:
+                return Asset.exportLight.image
+            }
+        }
+    }
+    
 //    weak public var delegate: QuickAddCatalogItemViewDelegate?
+    private var quickAccessType: QuickAccessType
     
     private let roundedView: UIView = {
         let view = UIView()
@@ -38,21 +72,21 @@ public final class QuickAcessView: UIView {
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) { nil }
     
-    public init(quickAccessTitle: String, quickAccessImage: UIImage) {
+    public init(type: QuickAccessType) {
+        quickAccessType = type
         super.init(frame: .zero)
-        
         backgroundColor = .green
         
-        configure(quickAccessTitle: quickAccessTitle, quickAccessImage: quickAccessImage)
+        configure()
         setupConstraints()
     }
     
-    private func configure(quickAccessTitle: String, quickAccessImage: UIImage) {
+    private func configure() {
         addSubview(roundedView)
         roundedView.addSubview(imageView)
         addSubview(titleLabel)
-        titleLabel.text = quickAccessTitle
-        imageView.image = quickAccessImage
+        titleLabel.text = quickAccessType.title
+        imageView.image = quickAccessType.image
     }
     
     private func setupConstraints() {

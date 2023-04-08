@@ -25,10 +25,10 @@ class HomeViewController: UIViewController {
     private func setupStackView() {
         view.addSubview(stackView)
         
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Perfil", quickAccessImage: Asset.userLight.image))
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Lembretes", quickAccessImage: Asset.clockLight.image))
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Histórico", quickAccessImage: Asset.bookLight.image))
-        stackView.addArrangedSubview(QuickAcessView(quickAccessTitle: "Compartilhar", quickAccessImage: Asset.exportLight.image))
+        let shortcuts: [QuickAcessView.QuickAccessType] = [.profile, .reminders, .history, .share]
+        shortcuts.forEach {
+            stackView.addArrangedSubview(QuickAcessView(type: $0))
+        }
     }
     
     private func setupConstraints() {
