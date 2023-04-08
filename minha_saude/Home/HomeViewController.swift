@@ -2,6 +2,7 @@ import Cartography
 import UIKit
 
 class HomeViewController: UIViewController {
+    private let interactor: HomeInteractorBusinessLogic
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -40,11 +41,19 @@ class HomeViewController: UIViewController {
             stack.trailing == view.trailing
         }
     }
+    
+    public init(interactor: HomeInteractorBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+
 }
 
 extension HomeViewController: QuickAccessViewDelegate {
     func didTouchQuickAccess(type: QuickAcessView.QuickAccessType) {
-        //chamar interactor
-        print(type.title)
+        interactor.didTouchQuickAccess(type: type)
     }
 }
