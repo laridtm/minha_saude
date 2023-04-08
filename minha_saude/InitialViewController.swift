@@ -26,9 +26,8 @@ class InitialViewController: UIViewController {
     }
 
     @objc private func enterApp() {
-        let interactor = HomeInteractor()
-        let home = HomeViewController(interactor: interactor)
-        navigationController?.pushViewController(home, animated: true)
+        let homeViewController = HomeConfigurator().resolve()
+        navigationController?.pushViewController(homeViewController, animated: true)
         print("Entrar")
     }
     
