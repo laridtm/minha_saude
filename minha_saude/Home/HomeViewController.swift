@@ -27,7 +27,9 @@ class HomeViewController: UIViewController {
         
         let shortcuts: [QuickAcessView.QuickAccessType] = [.profile, .reminders, .history, .share]
         shortcuts.forEach {
-            stackView.addArrangedSubview(QuickAcessView(type: $0))
+            let view = QuickAcessView(type: $0)
+            view.delegate = self
+            stackView.addArrangedSubview(view)
         }
     }
     
@@ -37,5 +39,12 @@ class HomeViewController: UIViewController {
             stack.left == view.left
             stack.trailing == view.trailing
         }
+    }
+}
+
+extension HomeViewController: QuickAccessViewDelegate {
+    func didTouchQuickAccess(type: QuickAcessView.QuickAccessType) {
+        //chamar interactor
+        print(type.title)
     }
 }

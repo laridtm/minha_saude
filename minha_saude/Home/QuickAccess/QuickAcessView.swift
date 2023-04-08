@@ -1,6 +1,10 @@
 import Cartography
 import UIKit
 
+public protocol QuickAccessViewDelegate: AnyObject {
+    func didTouchQuickAccess(type: QuickAcessView.QuickAccessType)
+}
+
 public final class QuickAcessView: UIView {
     
     struct Constants {
@@ -42,7 +46,7 @@ public final class QuickAcessView: UIView {
         }
     }
     
-//    weak public var delegate: QuickAddCatalogItemViewDelegate?
+    weak public var delegate: QuickAccessViewDelegate?
     private var quickAccessType: QuickAccessType
     
     private let roundedView: UIView = {
@@ -87,6 +91,9 @@ public final class QuickAcessView: UIView {
         addSubview(titleLabel)
         titleLabel.text = quickAccessType.title
         imageView.image = quickAccessType.image
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTouchView))
+        addGestureRecognizer(tapGesture)
     }
     
     private func setupConstraints() {
@@ -112,5 +119,9 @@ public final class QuickAcessView: UIView {
             container.width == Constants.roundedViewSize
             container.height == Constants.roundedViewSize
         }
+    }
+    
+    @objc private func didTouchView() {
+        delegate?.didTouchQuickAccess(type: quickAccessType)
     }
 }
