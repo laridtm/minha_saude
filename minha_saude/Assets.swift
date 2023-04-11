@@ -31,6 +31,7 @@ public enum Asset {
     public static let userLight = ImageAsset(name: "UserLight")
   }
   public enum ColorAssets {
+    public static let background = ColorAsset(name: "Background")
     public static let brandGreen = ColorAsset(name: "BrandGreen")
     public static let lightGray = ColorAsset(name: "LightGray")
   }

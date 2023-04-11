@@ -14,7 +14,8 @@ public final class HomeRouter: HomeRoutingLogic {
     public init() {}
     
     public func routeToProfile() {
-        print("Roteando para tela de perfil")
+//        let profileViewController = ProfileConfigurator().resolve()
+        viewController?.navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     public func routeToReminders() {

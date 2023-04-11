@@ -21,7 +21,7 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = Asset.ColorAssets.background.color
         addEnterButton()
     }
 
