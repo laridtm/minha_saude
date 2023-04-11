@@ -22,6 +22,7 @@
 		53C686E929E1C4EF004D4EE0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C686E829E1C4EF004D4EE0 /* HomeRouter.swift */; };
 		53C686EB29E1C833004D4EE0 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */; };
 		53D8AC2E29E608F8008138A9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8AC2D29E608F8008138A9 /* ProfileViewController.swift */; };
+		53D8AC3029E61D83008138A9 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8AC2F29E61D83008138A9 /* UserProfileModel.swift */; };
 		9B5D2A9C9DC47D27BF75864F /* libPods-minha_saude.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		53C686E829E1C4EF004D4EE0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		53D8AC2D29E608F8008138A9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		53D8AC2F29E61D83008138A9 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		5472FCCBA75A6E6BB48B6B4B /* Pods-minha_saude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minha_saude.debug.xcconfig"; path = "Target Support Files/Pods-minha_saude/Pods-minha_saude.debug.xcconfig"; sourceTree = "<group>"; };
 		DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-minha_saude.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				53D8AC2D29E608F8008138A9 /* ProfileViewController.swift */,
+				53D8AC2F29E61D83008138A9 /* UserProfileModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */,
 				53C686E729E1C1F9004D4EE0 /* HomeConfigurator.swift in Sources */,
 				53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */,
+				53D8AC3029E61D83008138A9 /* UserProfileModel.swift in Sources */,
 				53C686E529E1BEEE004D4EE0 /* HomeInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

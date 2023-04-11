@@ -26,14 +26,13 @@ class ProfileViewController: UIViewController {
         textField.clearButtonMode = .always
         textField.contentVerticalAlignment = .center
         
-//        sampleTextField.delegate = self
-       
-//        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return textField
     }()
     
+    private let segments = ["Masculino", "Feminino"]
+    
     private lazy var genderSegmentedControl: UISegmentedControl = {
-        let segmented = UISegmentedControl(items: ["Masculino", "Feminino"])
+        let segmented = UISegmentedControl(items: segments)
         segmented.selectedSegmentIndex = 0
         segmented.selectedSegmentTintColor = Asset.ColorAssets.brandGreen.color
     
@@ -139,6 +138,18 @@ class ProfileViewController: UIViewController {
     }
 
     @objc private func saveProfile() {
+        let userProfile = UserProfile(
+            fullName: fullNameTextField.text ?? "",
+            gender: segments[genderSegmentedControl.selectedSegmentIndex],
+            birthDate: birthDateTextField.text ?? "",
+            cpf: cpfTextField.text ?? "",
+            telephone: telephoneTextField.text ?? "",
+            address: addressTextField.text ?? "",
+            maritalStatus: maritalStatusTextField.text ?? "",
+            bloodType: bloodTypeTextField.text ?? "",
+            emergencyContact: emergencyContactTextField.text ?? "",
+            alergies: alergiesTextField.text ?? ""
+        )
         print("Salvar")
     }
     
