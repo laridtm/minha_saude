@@ -9,6 +9,9 @@ class ProfileViewController: UIViewController {
         static let largeSpacing: CGFloat = 28
     }
     
+    private let interactor: ProfileInteractorBusinessLogic
+    private let segments = ["Masculino", "Feminino"]
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -28,8 +31,6 @@ class ProfileViewController: UIViewController {
         
         return textField
     }()
-    
-    private let segments = ["Masculino", "Feminino"]
     
     private lazy var genderSegmentedControl: UISegmentedControl = {
         let segmented = UISegmentedControl(items: segments)
@@ -128,6 +129,14 @@ class ProfileViewController: UIViewController {
         button.addTarget(self, action: #selector(saveProfile), for: .touchUpInside)
         return button
     }()
+    
+    public init(interactor: ProfileInteractorBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,7 +159,7 @@ class ProfileViewController: UIViewController {
             emergencyContact: emergencyContactTextField.text ?? "",
             alergies: alergiesTextField.text ?? ""
         )
-        print("Salvar")
+        interactor.saveProfile(userProfile: userProfile)
     }
     
     private func setupBackButton() {
@@ -158,7 +167,6 @@ class ProfileViewController: UIViewController {
         backButton.title = "Informações Pessoais"
         backButton.tintColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
     }
     
     private func setupConstraints() {

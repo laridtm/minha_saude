@@ -14,8 +14,8 @@ public final class HomeRouter: HomeRoutingLogic {
     public init() {}
     
     public func routeToProfile() {
-//        let profileViewController = ProfileConfigurator().resolve()
-        viewController?.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        let profileViewController = ProfileConfigurator().resolve()
+        viewController?.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     public func routeToReminders() {

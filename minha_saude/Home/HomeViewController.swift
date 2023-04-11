@@ -15,6 +15,14 @@ class HomeViewController: UIViewController {
         return stackView
     }()
     
+    public init(interactor: HomeInteractorBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,14 +49,6 @@ class HomeViewController: UIViewController {
             stack.trailing == view.trailing
         }
     }
-    
-    public init(interactor: HomeInteractorBusinessLogic) {
-        self.interactor = interactor
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) { nil }
 
 }
 
