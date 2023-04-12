@@ -27,11 +27,13 @@ public enum Asset {
   public enum Assets {
     public static let bookLight = ImageAsset(name: "BookLight")
     public static let clockLight = ImageAsset(name: "ClockLight")
+    public static let defaultUserImage = ImageAsset(name: "DefaultUserImage")
     public static let exportLight = ImageAsset(name: "ExportLight")
     public static let userLight = ImageAsset(name: "UserLight")
   }
   public enum ColorAssets {
     public static let background = ColorAsset(name: "Background")
+    public static let brandBlue = ColorAsset(name: "BrandBlue")
     public static let brandGreen = ColorAsset(name: "BrandGreen")
     public static let lightGray = ColorAsset(name: "LightGray")
   }

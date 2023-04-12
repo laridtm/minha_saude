@@ -4,6 +4,12 @@ import UIKit
 class HomeViewController: UIViewController {
     private let interactor: HomeInteractorBusinessLogic
     
+    private let userInfoView: UserInfoView = {
+        let view = UserInfoView()
+        view.clipsToBounds = true
+        return view
+    }()
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -27,6 +33,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Asset.ColorAssets.background.color
+        configure()
+    }
+    
+    private func configure() {
+        view.addSubview(userInfoView)
         setupStackView()
         setupConstraints()
     }
@@ -43,8 +54,12 @@ class HomeViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        constrain(stackView, view) { stack, view in
-            stack.top == view.safeAreaLayoutGuide.top
+        constrain(userInfoView, stackView, view) { userInfo, stack, view in
+            userInfo.top == view.safeAreaLayoutGuide.top
+            userInfo.left == view.left
+            userInfo.trailing == view.trailing
+            
+            stack.top == userInfo.bottom + 25
             stack.left == view.left
             stack.trailing == view.trailing
         }
