@@ -1,18 +1,18 @@
-public struct UserInfo {
+public struct UserInfo: Decodable {
     let fullName: String
     let bloodType: String
-    let alergies: String
-    let emergencyContact: String
+    let allergies: String
+    let emergencyPhone: String
     
     public init(
         fullName: String,
         bloodType: String,
-        alergies: String,
-        emergencyContact: String
+        allergies: String,
+        emergencyPhone: String
     ) {
         self.fullName = fullName
         self.bloodType = bloodType
-        self.alergies = alergies
-        self.emergencyContact = emergencyContact
+        self.allergies = allergies
+        self.emergencyPhone = emergencyPhone
     }
 }

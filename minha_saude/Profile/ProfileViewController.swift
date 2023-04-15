@@ -100,7 +100,7 @@ class ProfileViewController: UIViewController {
         return textField
     }()
     
-    private lazy var emergencyContactTextField: UITextField = {
+    private lazy var emergencyPhoneTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Contato de emergência"
         textField.borderStyle = .roundedRect
@@ -110,7 +110,7 @@ class ProfileViewController: UIViewController {
         return textField
     }()
     
-    private lazy var alergiesTextField: UITextField = {
+    private lazy var allergiesTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Alergias"
         textField.borderStyle = .roundedRect
@@ -156,8 +156,8 @@ class ProfileViewController: UIViewController {
             address: addressTextField.text ?? "",
             maritalStatus: maritalStatusTextField.text ?? "",
             bloodType: bloodTypeTextField.text ?? "",
-            emergencyContact: emergencyContactTextField.text ?? "",
-            alergies: alergiesTextField.text ?? ""
+            emergencyPhone: emergencyPhoneTextField.text ?? "",
+            allergies: allergiesTextField.text ?? ""
         )
         interactor.saveProfile(userProfile: userProfile)
     }
@@ -178,8 +178,8 @@ class ProfileViewController: UIViewController {
         stackView.addArrangedSubview(addressTextField)
         stackView.addArrangedSubview(maritalStatusTextField)
         stackView.addArrangedSubview(bloodTypeTextField)
-        stackView.addArrangedSubview(emergencyContactTextField)
-        stackView.addArrangedSubview(alergiesTextField)
+        stackView.addArrangedSubview(emergencyPhoneTextField)
+        stackView.addArrangedSubview(allergiesTextField)
         
         view.addSubview(stackView)
         view.addSubview(saveButton)

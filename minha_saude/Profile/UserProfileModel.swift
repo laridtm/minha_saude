@@ -7,8 +7,8 @@ struct UserProfile {
     private let address: String
     private let maritalStatus: String
     private let bloodType: String
-    private let emergencyContact: String
-    private let alergies: String
+    private let emergencyPhone: String
+    private let allergies: String
     
     init(
         fullName: String,
@@ -19,8 +19,8 @@ struct UserProfile {
         address: String,
         maritalStatus: String,
         bloodType: String,
-        emergencyContact: String,
-        alergies: String
+        emergencyPhone: String,
+        allergies: String
     ) {
         self.fullName = fullName
         self.gender = gender
@@ -30,7 +30,7 @@ struct UserProfile {
         self.address = address
         self.maritalStatus = maritalStatus
         self.bloodType = bloodType
-        self.emergencyContact = emergencyContact
-        self.alergies = alergies
+        self.emergencyPhone = emergencyPhone
+        self.allergies = allergies
     }
 }

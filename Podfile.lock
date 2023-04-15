@@ -1,20 +1,30 @@
 PODS:
+  - Alamofire (5.6.4)
   - Cartography (3.1.0)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
   - SwiftGen (6.6.2)
 
 DEPENDENCIES:
   - Cartography (~> 3.0)
+  - Moya (~> 15.0)
   - SwiftGen (~> 6.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Cartography
+    - Moya
     - SwiftGen
 
 SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   Cartography: 1988b7578871a56c036e7af17195cb2190edf18c
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
 
-PODFILE CHECKSUM: 2970d9e022bcc186e0d1e7fc17f99926cae0ce4f
+PODFILE CHECKSUM: b2a463331a8b894129f62ea1c6629d8cb4a1cd7c
 
 COCOAPODS: 1.12.0

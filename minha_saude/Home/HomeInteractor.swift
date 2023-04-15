@@ -6,10 +6,16 @@ protocol HomeBusinessLogic {
 public final class HomeInteractor: HomeBusinessLogic {
     private let router: HomeRoutingLogic
     private let presenter: HomePresentationLogic
+    private let worker: HomeWorkerLogic
     
-    init(router: HomeRoutingLogic, presenter: HomePresentationLogic) {
+    init(
+        router: HomeRoutingLogic,
+        presenter: HomePresentationLogic,
+        worker: HomeWorkerLogic
+    ) {
         self.router = router
         self.presenter = presenter
+        self.worker = worker
     }
     
     func didTouchQuickAccess(type: QuickAcessView.QuickAccessType) {
@@ -30,12 +36,14 @@ public final class HomeInteractor: HomeBusinessLogic {
     }
     
     private func loadUserInfo() {
-        let user = UserInfo(
-            fullName: "Alexandre Silveira",
-            bloodType: "O+",
-            alergies: "Dipirona, Rinite",
-            emergencyContact: "(48) 99652-5859"
-        )
-        presenter.presentUserInfo(info: user)
+        worker.fetchUserInfo(id: "00897314921") { result in
+            switch result {
+            case .success(let info):
+                self.presenter.presentUserInfo(info: info)
+            case .failure(let error):
+                //TODO: Enviar um feedback de error para a home view controller
+                print(error)
+            }
+        }
     }
 }

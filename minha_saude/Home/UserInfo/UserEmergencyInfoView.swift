@@ -28,7 +28,7 @@ public final class UserEmergencyInfoView: UIView {
         return label
     }()
     
-    private let alergiesLabel: UILabel = {
+    private let allergiesLabel: UILabel = {
         let label = UILabel()
         label.text = "Alergias:"
         label.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
@@ -37,7 +37,7 @@ public final class UserEmergencyInfoView: UIView {
         return label
     }()
     
-    private let alergiesValueLabel: UILabel = {
+    private let allergiesValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Constants.fontSize)
         label.textColor = Asset.ColorAssets.brandGreen.color
@@ -45,7 +45,7 @@ public final class UserEmergencyInfoView: UIView {
         return label
     }()
     
-    private let emergencyContactLabel: UILabel = {
+    private let emergencyPhoneLabel: UILabel = {
         let label = UILabel()
         label.text = "Contato de emergência:"
         label.font = UIFont.boldSystemFont(ofSize: Constants.fontSize)
@@ -54,7 +54,7 @@ public final class UserEmergencyInfoView: UIView {
         return label
     }()
     
-    private let emergencyContactValueLabel: UILabel = {
+    private let emergencyPhoneValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Constants.fontSize)
         label.textColor = Asset.ColorAssets.brandGreen.color
@@ -79,10 +79,10 @@ public final class UserEmergencyInfoView: UIView {
         
         addSubview(bloodTypeLabel)
         addSubview(bloodTypeValueLabel)
-        addSubview(alergiesLabel)
-        addSubview(alergiesValueLabel)
-        addSubview(emergencyContactLabel)
-        addSubview(emergencyContactValueLabel)
+        addSubview(allergiesLabel)
+        addSubview(allergiesValueLabel)
+        addSubview(emergencyPhoneLabel)
+        addSubview(emergencyPhoneValueLabel)
     }
     
     private func setupConstraints() {
@@ -90,32 +90,32 @@ public final class UserEmergencyInfoView: UIView {
             self,
             bloodTypeLabel,
             bloodTypeValueLabel,
-            alergiesLabel,
-            alergiesValueLabel,
-            emergencyContactLabel,
-            emergencyContactValueLabel
-        ) { view, blood, bloodValue, alergies, alergiesValue, emergency, emergencyValue in
+            allergiesLabel,
+            allergiesValueLabel,
+            emergencyPhoneLabel,
+            emergencyPhoneValueLabel
+        ) { view, blood, bloodValue, allergies, allergiesValue, emergency, emergencyValue in
             blood.top == view.top + Constants.borderSize
             blood.leading == view.leading + Constants.borderSize
             bloodValue.top == view.top + Constants.borderSize
             bloodValue.leading == blood.trailing + Constants.valueSpacing
             
-            alergies.top == blood.bottom + Constants.labelSpacing
-            alergies.leading == view.leading + Constants.borderSize
-            alergiesValue.top == blood.bottom + Constants.labelSpacing
-            alergiesValue.leading == alergies.trailing + Constants.valueSpacing
+            allergies.top == blood.bottom + Constants.labelSpacing
+            allergies.leading == view.leading + Constants.borderSize
+            allergiesValue.top == blood.bottom + Constants.labelSpacing
+            allergiesValue.leading == allergies.trailing + Constants.valueSpacing
             
-            emergency.top == alergies.bottom + Constants.labelSpacing
+            emergency.top == allergies.bottom + Constants.labelSpacing
             emergency.leading == view.leading + Constants.borderSize
             emergency.bottom == view.bottom - Constants.borderSize
-            emergencyValue.top == alergies.bottom + Constants.labelSpacing
+            emergencyValue.top == allergies.bottom + Constants.labelSpacing
             emergencyValue.leading == emergency.trailing + Constants.valueSpacing
         }
     }
     
     public func configure(info: UserInfo) {
         bloodTypeValueLabel.text = info.bloodType
-        alergiesValueLabel.text = info.alergies
-        emergencyContactValueLabel.text = info.emergencyContact
+        allergiesValueLabel.text = info.allergies
+        emergencyPhoneValueLabel.text = info.emergencyPhone
     }
 }
