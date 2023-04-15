@@ -34,7 +34,6 @@ public final class UserInfoView: UIView {
     
     private let fullNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Alexandre Silveira"
         label.font = UIFont.boldSystemFont(ofSize: Constants.nameFontSize)
         label.textColor = .black
         label.textAlignment = .center
@@ -46,11 +45,11 @@ public final class UserInfoView: UIView {
     
     public init() {
         super.init(frame: .zero)
-        configure()
+        configureSubviews()
         setupConstraints()
     }
     
-    private func configure() {
+    private func configureSubviews() {
         backgroundColor = Asset.ColorAssets.background.color
         
         addSubview(imageView)
@@ -74,5 +73,9 @@ public final class UserInfoView: UIView {
             
             view.height == Constants.roundedViewSize
         }
+    }
+    
+    public func configure(info: UserInfo) {
+        fullNameLabel.text = info.fullName
     }
 }

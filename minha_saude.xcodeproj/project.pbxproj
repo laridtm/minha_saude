@@ -27,7 +27,7 @@
 		53D8AC3429E621CE008138A9 /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8AC3329E621CE008138A9 /* ProfileConfigurator.swift */; };
 		53D8AC3729E62EF6008138A9 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8AC3629E62EF6008138A9 /* UserInfoView.swift */; };
 		53D98D8F29EAC1B3005AB726 /* UserEmergencyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D98D8E29EAC1B2005AB726 /* UserEmergencyInfoView.swift */; };
-		53D98D9329EAD29A005AB726 /* UserEmergencyInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D98D9229EAD29A005AB726 /* UserEmergencyInfoModel.swift */; };
+		53D98D9329EAD29A005AB726 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D98D9229EAD29A005AB726 /* UserInfoModel.swift */; };
 		53D98D9729EB03F4005AB726 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D98D9629EB03F4005AB726 /* HomePresenter.swift */; };
 		9B5D2A9C9DC47D27BF75864F /* libPods-minha_saude.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */; };
 /* End PBXBuildFile section */
@@ -75,7 +75,7 @@
 		53D8AC3329E621CE008138A9 /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
 		53D8AC3629E62EF6008138A9 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		53D98D8E29EAC1B2005AB726 /* UserEmergencyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEmergencyInfoView.swift; sourceTree = "<group>"; };
-		53D98D9229EAD29A005AB726 /* UserEmergencyInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEmergencyInfoModel.swift; sourceTree = "<group>"; };
+		53D98D9229EAD29A005AB726 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		53D98D9629EB03F4005AB726 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		5472FCCBA75A6E6BB48B6B4B /* Pods-minha_saude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minha_saude.debug.xcconfig"; path = "Target Support Files/Pods-minha_saude/Pods-minha_saude.debug.xcconfig"; sourceTree = "<group>"; };
 		DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-minha_saude.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +182,6 @@
 		53BCB46A29DE2A9F00B9A270 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				53D98D8D29EAC185005AB726 /* UserEmergencyInfo */,
 				53D8AC3529E62EE7008138A9 /* UserInfo */,
 				53BCB46F29DE2D2200B9A270 /* QuickAccess */,
 				53BCB46B29DE2AB600B9A270 /* HomeViewController.swift */,
@@ -217,17 +216,10 @@
 			isa = PBXGroup;
 			children = (
 				53D8AC3629E62EF6008138A9 /* UserInfoView.swift */,
+				53D98D9229EAD29A005AB726 /* UserInfoModel.swift */,
+				53D98D8E29EAC1B2005AB726 /* UserEmergencyInfoView.swift */,
 			);
 			path = UserInfo;
-			sourceTree = "<group>";
-		};
-		53D98D8D29EAC185005AB726 /* UserEmergencyInfo */ = {
-			isa = PBXGroup;
-			children = (
-				53D98D8E29EAC1B2005AB726 /* UserEmergencyInfoView.swift */,
-				53D98D9229EAD29A005AB726 /* UserEmergencyInfoModel.swift */,
-			);
-			path = UserEmergencyInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,7 +385,7 @@
 				53C686E929E1C4EF004D4EE0 /* HomeRouter.swift in Sources */,
 				53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */,
 				53BCB47129DE2DA500B9A270 /* QuickAccessView.swift in Sources */,
-				53D98D9329EAD29A005AB726 /* UserEmergencyInfoModel.swift in Sources */,
+				53D98D9329EAD29A005AB726 /* UserInfoModel.swift in Sources */,
 				53D98D8F29EAC1B3005AB726 /* UserEmergencyInfoView.swift in Sources */,
 				53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */,
 				53D8AC3429E621CE008138A9 /* ProfileConfigurator.swift in Sources */,

@@ -67,11 +67,11 @@ public final class UserEmergencyInfoView: UIView {
     
     public init() {
         super.init(frame: .zero)
-        configure()
+        configureSubviews()
         setupConstraints()
     }
     
-    private func configure() {
+    private func configureSubviews() {
         backgroundColor = Asset.ColorAssets.lightGreen.color
         layer.borderColor = Asset.ColorAssets.brandGreen.color.cgColor
         layer.borderWidth = Constants.borderWidth
@@ -113,9 +113,9 @@ public final class UserEmergencyInfoView: UIView {
         }
     }
     
-    public func configure(emergencyInfo: UserEmergencyInfo) {
-        bloodTypeValueLabel.text = emergencyInfo.bloodType
-        alergiesValueLabel.text = emergencyInfo.alergies
-        emergencyContactValueLabel.text = emergencyInfo.emergencyContact
+    public func configure(info: UserInfo) {
+        bloodTypeValueLabel.text = info.bloodType
+        alergiesValueLabel.text = info.alergies
+        emergencyContactValueLabel.text = info.emergencyContact
     }
 }

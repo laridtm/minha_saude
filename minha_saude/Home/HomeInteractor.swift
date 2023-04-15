@@ -26,12 +26,16 @@ public final class HomeInteractor: HomeBusinessLogic {
     }
     
     func viewDidLoad() {
-        loadUserEmergencyInfo()
-        
+        loadUserInfo()
     }
     
-    private func loadUserEmergencyInfo() {
-        let emergencyInfo = UserEmergencyInfo(bloodType: "O+", alergies: "Dipirona, Rinite", emergencyContact: "(48) 99652-5859")
-        presenter.presentUserEmergencyInfo(info: emergencyInfo)
+    private func loadUserInfo() {
+        let user = UserInfo(
+            fullName: "Alexandre Silveira",
+            bloodType: "O+",
+            alergies: "Dipirona, Rinite",
+            emergencyContact: "(48) 99652-5859"
+        )
+        presenter.presentUserInfo(info: user)
     }
 }

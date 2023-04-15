@@ -2,7 +2,7 @@ import Cartography
 import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
-    func displayUserEmergencyInfo(info: UserEmergencyInfo)
+    func displayUserInfo(info: UserInfo)
 }
 
 class HomeViewController: UIViewController {
@@ -91,8 +91,9 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeDisplayLogic {
-    func displayUserEmergencyInfo(info: UserEmergencyInfo) {
-        userEmergencyInfoView.configure(emergencyInfo: info)
+    func displayUserInfo(info: UserInfo) {
+        userInfoView.configure(info: info)
+        userEmergencyInfoView.configure(info: info)
     }
 }
 
