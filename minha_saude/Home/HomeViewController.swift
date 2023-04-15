@@ -2,10 +2,23 @@ import Cartography
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    struct Constants {
+        static let layoutMargins: CGFloat = 10
+        static let stackViewSpacing: CGFloat = 24
+        static let userInfoSpacing: CGFloat = 17
+    }
+    
     private let interactor: HomeInteractorBusinessLogic
     
     private let userInfoView: UserInfoView = {
         let view = UserInfoView()
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    private let userEmergencyInfoView: UserEmergencyInfoView = {
+        let view = UserEmergencyInfoView()
         view.clipsToBounds = true
         return view
     }()
@@ -16,8 +29,8 @@ class HomeViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .equalCentering
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .init(top: 0, left: 10, bottom: 0, right: 10)
-        stackView.spacing = 24
+        stackView.layoutMargins = .init(top: 0, left: Constants.layoutMargins, bottom: 0, right: Constants.layoutMargins)
+        stackView.spacing = Constants.stackViewSpacing
         return stackView
     }()
     
@@ -38,6 +51,7 @@ class HomeViewController: UIViewController {
     
     private func configure() {
         view.addSubview(userInfoView)
+        view.addSubview(userEmergencyInfoView)
         setupStackView()
         setupConstraints()
     }
@@ -54,13 +68,17 @@ class HomeViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        constrain(userInfoView, stackView, view) { userInfo, stack, view in
+        constrain(userInfoView, userEmergencyInfoView, stackView, view) { userInfo, emergencyInfo, stack, view in
             userInfo.top == view.safeAreaLayoutGuide.top
-            userInfo.left == view.left
+            userInfo.leading == view.leading
             userInfo.trailing == view.trailing
             
-            stack.top == userInfo.bottom + 25
-            stack.left == view.left
+            emergencyInfo.top == userInfo.bottom + Constants.userInfoSpacing
+            emergencyInfo.leading == view.leading + Constants.stackViewSpacing
+            emergencyInfo.trailing == view.trailing - Constants.stackViewSpacing
+            
+            stack.top == emergencyInfo.bottom + Constants.stackViewSpacing
+            stack.leading == view.leading
             stack.trailing == view.trailing
         }
     }

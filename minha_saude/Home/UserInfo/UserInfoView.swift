@@ -8,6 +8,8 @@ public final class UserInfoView: UIView {
         static let borderSpacing: CGFloat = 28
         static let internalSpacing: CGFloat = 15
         static let titleSpacing: CGFloat = 4
+        static let logoFontSize: CGFloat = 20
+        static let nameFontSize: CGFloat = 16
     }
     
     private let imageView: UIImageView = {
@@ -24,7 +26,7 @@ public final class UserInfoView: UIView {
     private let minhaSaudeLabel: UILabel = {
         let label = UILabel()
         label.text = "MINHA SAÚDE"
-        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.font = UIFont.boldSystemFont(ofSize: Constants.logoFontSize)
         label.textColor = Asset.ColorAssets.brandBlue.color
         label.textAlignment = .center
         return label
@@ -33,7 +35,7 @@ public final class UserInfoView: UIView {
     private let fullNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Alexandre Silveira"
-        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.font = UIFont.boldSystemFont(ofSize: Constants.nameFontSize)
         label.textColor = .black
         label.textAlignment = .center
         return label

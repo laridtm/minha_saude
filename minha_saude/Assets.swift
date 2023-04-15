@@ -36,6 +36,7 @@ public enum Asset {
     public static let brandBlue = ColorAsset(name: "BrandBlue")
     public static let brandGreen = ColorAsset(name: "BrandGreen")
     public static let lightGray = ColorAsset(name: "LightGray")
+    public static let lightGreen = ColorAsset(name: "LightGreen")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
