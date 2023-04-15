@@ -153,12 +153,12 @@
 		53BCB43929DE1F9700B9A270 /* minha_saude */ = {
 			isa = PBXGroup;
 			children = (
-				53D8AC2C29E608E5008138A9 /* Profile */,
+				53D98D9E29EB1834005AB726 /* Initial */,
 				53BCB46A29DE2A9F00B9A270 /* Home */,
+				53D8AC2C29E608E5008138A9 /* Profile */,
 				53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */,
 				53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */,
 				53C686E229E1B67E004D4EE0 /* Assets.swift */,
-				53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */,
 				53BCB44329DE1F9900B9A270 /* Assets.xcassets */,
 				53BCB44829DE1F9900B9A270 /* Info.plist */,
 				53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */,
@@ -234,6 +234,14 @@
 				53D98D9B29EB0D54005AB726 /* UserInfoRequest.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		53D98D9E29EB1834005AB726 /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */,
+			);
+			path = Initial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
