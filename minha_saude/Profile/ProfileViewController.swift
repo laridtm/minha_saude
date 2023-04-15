@@ -9,7 +9,7 @@ class ProfileViewController: UIViewController {
         static let largeSpacing: CGFloat = 28
     }
     
-    private let interactor: ProfileInteractorBusinessLogic
+    private let interactor: ProfileBusinessLogic
     private let segments = ["Masculino", "Feminino"]
     
     private let stackView: UIStackView = {
@@ -130,7 +130,7 @@ class ProfileViewController: UIViewController {
         return button
     }()
     
-    public init(interactor: ProfileInteractorBusinessLogic) {
+    public init(interactor: ProfileBusinessLogic) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }

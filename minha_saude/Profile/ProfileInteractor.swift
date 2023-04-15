@@ -1,8 +1,8 @@
-protocol ProfileInteractorBusinessLogic {
+protocol ProfileBusinessLogic {
     func saveProfile(userProfile: UserProfile)
 }
 
-public final class ProfileInteractor: ProfileInteractorBusinessLogic {
+public final class ProfileInteractor: ProfileBusinessLogic {
 //    private let router: HomeRoutingLogic
     
     public init() {

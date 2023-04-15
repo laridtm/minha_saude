@@ -22,7 +22,6 @@ public final class UserEmergencyInfoView: UIView {
     
     private let bloodTypeValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "O+"
         label.font = UIFont.systemFont(ofSize: Constants.fontSize)
         label.textColor = Asset.ColorAssets.brandGreen.color
         label.textAlignment = .center
@@ -40,7 +39,6 @@ public final class UserEmergencyInfoView: UIView {
     
     private let alergiesValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Dipirona, Rinite"
         label.font = UIFont.systemFont(ofSize: Constants.fontSize)
         label.textColor = Asset.ColorAssets.brandGreen.color
         label.textAlignment = .center
@@ -58,7 +56,6 @@ public final class UserEmergencyInfoView: UIView {
     
     private let emergencyContactValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "(48) 99652-5859"
         label.font = UIFont.systemFont(ofSize: Constants.fontSize)
         label.textColor = Asset.ColorAssets.brandGreen.color
         label.textAlignment = .center
@@ -114,5 +111,11 @@ public final class UserEmergencyInfoView: UIView {
             emergencyValue.top == alergies.bottom + Constants.labelSpacing
             emergencyValue.leading == emergency.trailing + Constants.valueSpacing
         }
+    }
+    
+    public func configure(emergencyInfo: UserEmergencyInfo) {
+        bloodTypeValueLabel.text = emergencyInfo.bloodType
+        alergiesValueLabel.text = emergencyInfo.alergies
+        emergencyContactValueLabel.text = emergencyInfo.emergencyContact
     }
 }

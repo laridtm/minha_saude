@@ -1,6 +1,10 @@
 import Cartography
 import UIKit
 
+protocol HomeDisplayLogic: AnyObject {
+    func displayUserEmergencyInfo(info: UserEmergencyInfo)
+}
+
 class HomeViewController: UIViewController {
     
     struct Constants {
@@ -9,7 +13,7 @@ class HomeViewController: UIViewController {
         static let userInfoSpacing: CGFloat = 17
     }
     
-    private let interactor: HomeInteractorBusinessLogic
+    private let interactor: HomeBusinessLogic
     
     private let userInfoView: UserInfoView = {
         let view = UserInfoView()
@@ -34,8 +38,9 @@ class HomeViewController: UIViewController {
         return stackView
     }()
     
-    public init(interactor: HomeInteractorBusinessLogic) {
+    public init(interactor: HomeBusinessLogic) {
         self.interactor = interactor
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,6 +52,7 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = Asset.ColorAssets.background.color
         configure()
+        interactor.viewDidLoad()
     }
     
     private func configure() {
@@ -82,7 +88,12 @@ class HomeViewController: UIViewController {
             stack.trailing == view.trailing
         }
     }
+}
 
+extension HomeViewController: HomeDisplayLogic {
+    func displayUserEmergencyInfo(info: UserEmergencyInfo) {
+        userEmergencyInfoView.configure(emergencyInfo: info)
+    }
 }
 
 extension HomeViewController: QuickAccessViewDelegate {

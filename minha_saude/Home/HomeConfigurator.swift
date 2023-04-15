@@ -5,8 +5,10 @@ public class HomeConfigurator {
 
     public func resolve() -> UIViewController {
         let router = HomeRouter()
-        let interactor = HomeInteractor(router: router)
+        let presenter = HomePresenter()
+        let interactor = HomeInteractor(router: router, presenter: presenter)
         let viewController = HomeViewController(interactor: interactor)
+        presenter.viewController = viewController
         router.viewController = viewController
         
         return viewController
