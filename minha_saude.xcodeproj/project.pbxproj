@@ -21,6 +21,9 @@
 		53C686E729E1C1F9004D4EE0 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C686E629E1C1F9004D4EE0 /* HomeConfigurator.swift */; };
 		53C686E929E1C4EF004D4EE0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C686E829E1C4EF004D4EE0 /* HomeRouter.swift */; };
 		53C686EB29E1C833004D4EE0 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */; };
+		53D2CB8B29EDEE8C00A896D6 /* MedicalRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2CB8A29EDEE8C00A896D6 /* MedicalRecordCell.swift */; };
+		53D2CB8D29EDF81A00A896D6 /* MedicalHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2CB8C29EDF81A00A896D6 /* MedicalHistoryViewController.swift */; };
+		53D2CB8F29EDFB8A00A896D6 /* MedicalRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D2CB8E29EDFB8A00A896D6 /* MedicalRecordModel.swift */; };
 		53D8AC2E29E608F8008138A9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8AC2D29E608F8008138A9 /* ProfileViewController.swift */; };
 		53D8AC3029E61D83008138A9 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8AC2F29E61D83008138A9 /* UserProfileModel.swift */; };
 		53D8AC3229E620FC008138A9 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8AC3129E620FC008138A9 /* ProfileInteractor.swift */; };
@@ -71,6 +74,9 @@
 		53C686E629E1C1F9004D4EE0 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		53C686E829E1C4EF004D4EE0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		53C686EA29E1C833004D4EE0 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		53D2CB8A29EDEE8C00A896D6 /* MedicalRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordCell.swift; sourceTree = "<group>"; };
+		53D2CB8C29EDF81A00A896D6 /* MedicalHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryViewController.swift; sourceTree = "<group>"; };
+		53D2CB8E29EDFB8A00A896D6 /* MedicalRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordModel.swift; sourceTree = "<group>"; };
 		53D8AC2D29E608F8008138A9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		53D8AC2F29E61D83008138A9 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		53D8AC3129E620FC008138A9 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 		53BCB43929DE1F9700B9A270 /* minha_saude */ = {
 			isa = PBXGroup;
 			children = (
+				53D2CB8929EDEE7300A896D6 /* MedicalHistory */,
 				53D98D9E29EB1834005AB726 /* Initial */,
 				53BCB46A29DE2A9F00B9A270 /* Home */,
 				53D8AC2C29E608E5008138A9 /* Profile */,
@@ -204,6 +211,16 @@
 				53BCB47029DE2DA500B9A270 /* QuickAccessView.swift */,
 			);
 			path = QuickAccess;
+			sourceTree = "<group>";
+		};
+		53D2CB8929EDEE7300A896D6 /* MedicalHistory */ = {
+			isa = PBXGroup;
+			children = (
+				53D2CB8A29EDEE8C00A896D6 /* MedicalRecordCell.swift */,
+				53D2CB8C29EDF81A00A896D6 /* MedicalHistoryViewController.swift */,
+				53D2CB8E29EDFB8A00A896D6 /* MedicalRecordModel.swift */,
+			);
+			path = MedicalHistory;
 			sourceTree = "<group>";
 		};
 		53D8AC2C29E608E5008138A9 /* Profile */ = {
@@ -404,8 +421,11 @@
 				53D8AC3729E62EF6008138A9 /* UserInfoView.swift in Sources */,
 				53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */,
 				53D8AC2E29E608F8008138A9 /* ProfileViewController.swift in Sources */,
+				53D2CB8F29EDFB8A00A896D6 /* MedicalRecordModel.swift in Sources */,
 				53C686E929E1C4EF004D4EE0 /* HomeRouter.swift in Sources */,
+				53D2CB8D29EDF81A00A896D6 /* MedicalHistoryViewController.swift in Sources */,
 				53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */,
+				53D2CB8B29EDEE8C00A896D6 /* MedicalRecordCell.swift in Sources */,
 				53BCB47129DE2DA500B9A270 /* QuickAccessView.swift in Sources */,
 				53D98D9329EAD29A005AB726 /* UserInfoModel.swift in Sources */,
 				53D98D8F29EAC1B3005AB726 /* UserEmergencyInfoView.swift in Sources */,

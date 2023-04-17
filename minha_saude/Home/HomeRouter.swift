@@ -23,7 +23,8 @@ public final class HomeRouter: HomeRoutingLogic {
     }
     
     public func routeToHistory() {
-        print("Roteando para tela de histórico")
+        let medicalHistoryViewController = MedicalHistoryViewController()
+        viewController?.navigationController?.pushViewController(medicalHistoryViewController, animated: true)
     }
     
     public func shareHistory() {
