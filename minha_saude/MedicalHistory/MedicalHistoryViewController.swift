@@ -13,6 +13,7 @@ class MedicalHistoryViewController: UIViewController {
             date: "21/02/23",
             hospital: "Clinica dos olhos",
             professional: "Dr. João",
+            name: "Clínico Geral",
             observation: "Consulta oftalmologista",
             type: .appointment
         ),
@@ -21,6 +22,7 @@ class MedicalHistoryViewController: UIViewController {
             date: "21/02/23",
             hospital: "Clinica dos olhos",
             professional: "Dr. João",
+            name: "Clínico Geral",
             observation: "Consulta oftalmologista",
             type: .exam
         ),
@@ -29,6 +31,7 @@ class MedicalHistoryViewController: UIViewController {
             date: "21/02/23",
             hospital: "Clinica dos olhos",
             professional: "Dr. João",
+            name: "Clínico Geral",
             observation: "Consulta oftalmologista",
             type: .vaccine
         )

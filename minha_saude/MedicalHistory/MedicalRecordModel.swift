@@ -3,6 +3,7 @@ public struct MedicalRecord: Decodable {
     let date: String
     let hospital: String
     let professional: String
+    let name: String
     let observation: String
     let type: MedicalRecordType
     
@@ -11,6 +12,7 @@ public struct MedicalRecord: Decodable {
         date: String,
         hospital: String,
         professional: String,
+        name: String,
         observation: String,
         type: MedicalRecordType
     ) {
@@ -18,6 +20,7 @@ public struct MedicalRecord: Decodable {
         self.date = date
         self.hospital = hospital
         self.professional = professional
+        self.name = name
         self.observation = observation
         self.type = type
     }
