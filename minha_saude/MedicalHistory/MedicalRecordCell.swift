@@ -92,8 +92,8 @@ public final class MedicalRecordTableViewCell: UITableViewCell {
     
     func configure(record: MedicalRecord) {
         typeImageView.image = record.type.image
-        titleLabel.text = "\(record.date) - \(record.professional)"
-        subtitleLabel.text = "\(record.hospital)"
+        titleLabel.text = "\(record.date) - \(record.name)"
+        subtitleLabel.text = "\(record.professional) - \(record.hospital)"
     }
 }
 
