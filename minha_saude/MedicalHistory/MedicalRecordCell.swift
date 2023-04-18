@@ -48,7 +48,7 @@ public final class MedicalRecordTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        configureView()
+        configure()
     }
 
     @available(*, unavailable)
@@ -56,7 +56,7 @@ public final class MedicalRecordTableViewCell: UITableViewCell {
         nil
     }
 
-    private func configureView() {
+    private func configure() {
         backgroundColor = Asset.ColorAssets.background.color
         
         contentView.addSubview(roundedView)
@@ -91,7 +91,6 @@ public final class MedicalRecordTableViewCell: UITableViewCell {
     }
     
     func configure(record: MedicalRecord) {
-        print(record)
         typeImageView.image = record.type.image
         titleLabel.text = "\(record.date) - \(record.professional)"
         subtitleLabel.text = "\(record.hospital)"

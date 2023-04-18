@@ -19,7 +19,8 @@ public final class HomeRouter: HomeRoutingLogic {
     }
     
     public func routeToReminders() {
-        print("Roteando para tela de lembretes")
+        let remindersViewController = RemindersViewController()
+        viewController?.navigationController?.pushViewController(remindersViewController, animated: true)
     }
     
     public func routeToHistory() {

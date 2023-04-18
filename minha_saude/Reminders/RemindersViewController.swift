@@ -1,36 +1,36 @@
 import Cartography
 import UIKit
 
-class MedicalHistoryViewController: UIViewController {
+class RemindersViewController: UIViewController {
     
     struct Constants {
-        static let estimatedRowHeight: CGFloat = 91
+        static let estimatedRowHeight: CGFloat = 77
     }
     
-    private var records: [MedicalRecord] = [
+    private var reminders: [Reminder] = [
         .init(
-            id: "6435fd7aa0683320460d5dbc",
-            date: "21/02/23",
-            hospital: "Clinica dos olhos",
-            professional: "Dr. João",
-            observation: "Consulta oftalmologista",
-            type: .appointment
+            id: "1",
+            name: "Remédio Pressão",
+            time: "12:00",
+            repetition: .everyDay
         ),
         .init(
-            id: "6435fd7aa0683320460d5dbc",
-            date: "21/02/23",
-            hospital: "Clinica dos olhos",
-            professional: "Dr. João",
-            observation: "Consulta oftalmologista",
-            type: .exam
+            id: "2",
+            name: "Remédio Pressão",
+            time: "12:00",
+            repetition: .once
         ),
         .init(
-            id: "6435fd7aa0683320460d5dbc",
-            date: "21/02/23",
-            hospital: "Clinica dos olhos",
-            professional: "Dr. João",
-            observation: "Consulta oftalmologista",
-            type: .vaccine
+            id: "3",
+            name: "Remédio Pressão",
+            time: "12:00",
+            repetition: .weekends
+        ),
+        .init(
+            id: "4",
+            name: "Remédio Pressão",
+            time: "12:00",
+            repetition: .mondayToFriday
         )
     ]
     
@@ -59,8 +59,8 @@ class MedicalHistoryViewController: UIViewController {
     private func configure() {
         tableView.dataSource = self
         tableView.delegate = self
-        let identifier = String(describing: MedicalRecordTableViewCell.self)
-        tableView.register(MedicalRecordTableViewCell.self, forCellReuseIdentifier: identifier)
+        let identifier = String(describing: ReminderTableViewCell.self)
+        tableView.register(ReminderTableViewCell.self, forCellReuseIdentifier: identifier)
         
         setupBackButton()
         
@@ -74,22 +74,22 @@ class MedicalHistoryViewController: UIViewController {
     
     private func setupBackButton() {
         let backButton = UIBarButtonItem()
-        backButton.title = "Meu Histórico"
+        backButton.title = "Lembretes"
         backButton.tintColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 }
 
-extension MedicalHistoryViewController: UITableViewDataSource, UITableViewDelegate {
+extension RemindersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        records.count
+        reminders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = String(describing: MedicalRecordTableViewCell.self)
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MedicalRecordTableViewCell else { return UITableViewCell()}
+        let identifier = String(describing: ReminderTableViewCell.self)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ReminderTableViewCell else { return UITableViewCell()}
         
-        cell.configure(record: records[indexPath.row])
+        cell.configure(reminder: reminders[indexPath.row])
         
         return cell
     }
