@@ -92,7 +92,12 @@ public final class MedicalRecordTableViewCell: UITableViewCell {
     
     func configure(record: MedicalRecord) {
         typeImageView.image = record.type.image
-        titleLabel.text = "\(record.date) - \(record.name)"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy - HH:mm"
+        let date = dateFormatter.string(from: record.date)
+        
+        titleLabel.text = "\(date) \(record.name)"
         subtitleLabel.text = "\(record.professional) - \(record.hospital)"
     }
 }

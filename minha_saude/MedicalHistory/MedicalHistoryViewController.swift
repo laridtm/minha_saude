@@ -1,41 +1,18 @@
 import Cartography
 import UIKit
 
+protocol MedicalHistoryDisplayLogic: AnyObject {
+    func displayMedicalHistory(_ history: [MedicalRecord])
+}
+
 class MedicalHistoryViewController: UIViewController {
     
     struct Constants {
         static let estimatedRowHeight: CGFloat = 91
     }
     
-    private var records: [MedicalRecord] = [
-        .init(
-            id: "6435fd7aa0683320460d5dbc",
-            date: "21/02/23",
-            hospital: "Clinica dos olhos",
-            professional: "Dr. João",
-            name: "Clínico Geral",
-            observation: "Consulta oftalmologista",
-            type: .appointment
-        ),
-        .init(
-            id: "6435fd7aa0683320460d5dbc",
-            date: "21/02/23",
-            hospital: "Clinica dos olhos",
-            professional: "Dr. João",
-            name: "Clínico Geral",
-            observation: "Consulta oftalmologista",
-            type: .exam
-        ),
-        .init(
-            id: "6435fd7aa0683320460d5dbc",
-            date: "21/02/23",
-            hospital: "Clinica dos olhos",
-            professional: "Dr. João",
-            name: "Clínico Geral",
-            observation: "Consulta oftalmologista",
-            type: .vaccine
-        )
-    ]
+    private let interactor: MedicalHistoryInteractor
+    private var records: [MedicalRecord] = []
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -46,17 +23,20 @@ class MedicalHistoryViewController: UIViewController {
         return tableView
     }()
     
-    public init() {
+    public init(interactor: MedicalHistoryInteractor) {
+        self.interactor = interactor
+        
         super.init(nibName: nil, bundle: nil)
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configure()
+        interactor.viewDidLoad()
     }
     
     private func configure() {
@@ -99,5 +79,12 @@ extension MedicalHistoryViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+}
+
+extension MedicalHistoryViewController: MedicalHistoryDisplayLogic {
+    func displayMedicalHistory(_ history: [MedicalRecord]) {
+        records = history
+        tableView.reloadData()
     }
 }

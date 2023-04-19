@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53788BDF29EF56D20091C01B /* MedicalHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BDE29EF56D20091C01B /* MedicalHistoryInteractor.swift */; };
+		53788BE129EF575C0091C01B /* MedicalHistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE029EF575C0091C01B /* MedicalHistoryWorker.swift */; };
+		53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */; };
+		53788BE629EF59260091C01B /* MedicalHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE529EF59260091C01B /* MedicalHistoryPresenter.swift */; };
+		53788BE829EF5BAB0091C01B /* MedicalHistoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE729EF5BAB0091C01B /* MedicalHistoryConfigurator.swift */; };
 		53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */; };
 		53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */; };
 		53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */; };
@@ -59,6 +64,11 @@
 
 /* Begin PBXFileReference section */
 		431B1801E21904C6EB6BC984 /* Pods-minha_saude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minha_saude.release.xcconfig"; path = "Target Support Files/Pods-minha_saude/Pods-minha_saude.release.xcconfig"; sourceTree = "<group>"; };
+		53788BDE29EF56D20091C01B /* MedicalHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryInteractor.swift; sourceTree = "<group>"; };
+		53788BE029EF575C0091C01B /* MedicalHistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryWorker.swift; sourceTree = "<group>"; };
+		53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryRequest.swift; sourceTree = "<group>"; };
+		53788BE529EF59260091C01B /* MedicalHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryPresenter.swift; sourceTree = "<group>"; };
+		53788BE729EF5BAB0091C01B /* MedicalHistoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryConfigurator.swift; sourceTree = "<group>"; };
 		53BCB43729DE1F9700B9A270 /* minha_saude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minha_saude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +148,14 @@
 				DD6EB28E4BB766B3B1C57E2E /* libPods-minha_saude.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53788BE229EF580B0091C01B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		53BCB42E29DE1F9700B9A270 = {
@@ -223,9 +241,14 @@
 		53D2CB8929EDEE7300A896D6 /* MedicalHistory */ = {
 			isa = PBXGroup;
 			children = (
+				53788BE229EF580B0091C01B /* Request */,
 				53D2CB8E29EDFB8A00A896D6 /* MedicalRecordModel.swift */,
 				53D2CB8A29EDEE8C00A896D6 /* MedicalRecordCell.swift */,
+				53788BE729EF5BAB0091C01B /* MedicalHistoryConfigurator.swift */,
 				53D2CB8C29EDF81A00A896D6 /* MedicalHistoryViewController.swift */,
+				53788BDE29EF56D20091C01B /* MedicalHistoryInteractor.swift */,
+				53788BE529EF59260091C01B /* MedicalHistoryPresenter.swift */,
+				53788BE029EF575C0091C01B /* MedicalHistoryWorker.swift */,
 			);
 			path = MedicalHistory;
 			sourceTree = "<group>";
@@ -435,12 +458,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */,
+				53788BE629EF59260091C01B /* MedicalHistoryPresenter.swift in Sources */,
+				53788BDF29EF56D20091C01B /* MedicalHistoryInteractor.swift in Sources */,
 				53D8AC3729E62EF6008138A9 /* UserInfoView.swift in Sources */,
+				53788BE829EF5BAB0091C01B /* MedicalHistoryConfigurator.swift in Sources */,
 				53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */,
 				53D8AC2E29E608F8008138A9 /* ProfileViewController.swift in Sources */,
 				53D2CB8F29EDFB8A00A896D6 /* MedicalRecordModel.swift in Sources */,
 				53D2CB9429EE11C800A896D6 /* ReminderModel.swift in Sources */,
 				53C686E929E1C4EF004D4EE0 /* HomeRouter.swift in Sources */,
+				53788BE129EF575C0091C01B /* MedicalHistoryWorker.swift in Sources */,
 				53D2CB8D29EDF81A00A896D6 /* MedicalHistoryViewController.swift in Sources */,
 				53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */,
 				53D2CB8B29EDEE8C00A896D6 /* MedicalRecordCell.swift in Sources */,
@@ -452,6 +479,7 @@
 				53D8AC3429E621CE008138A9 /* ProfileConfigurator.swift in Sources */,
 				53D98D9729EB03F4005AB726 /* HomePresenter.swift in Sources */,
 				53C686E729E1C1F9004D4EE0 /* HomeConfigurator.swift in Sources */,
+				53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */,
 				53D2CB9229EE0F3000A896D6 /* ReminderCell.swift in Sources */,
 				53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */,
 				53D8AC3029E61D83008138A9 /* UserProfileModel.swift in Sources */,

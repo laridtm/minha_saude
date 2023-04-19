@@ -24,7 +24,7 @@ public final class HomeRouter: HomeRoutingLogic {
     }
     
     public func routeToHistory() {
-        let medicalHistoryViewController = MedicalHistoryViewController()
+        let medicalHistoryViewController = MedicalHistoryConfigurator().resolve()
         viewController?.navigationController?.pushViewController(medicalHistoryViewController, animated: true)
     }
     
