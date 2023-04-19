@@ -48,8 +48,7 @@ class MedicalHistoryViewController: UIViewController {
         tableView.register(MedicalRecordTableViewCell.self, forCellReuseIdentifier: identifier)
         
         setupBackButton()
-        
-//        view.backgroundColor = Asset.ColorAssets.background.color
+
         view.addSubview(tableView)
         
         constrain(tableView, view) { tableView, view in
@@ -61,7 +60,6 @@ class MedicalHistoryViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Meu Histórico"
         backButton.tintColor = .black
-//        navigationController?.navigationBar.backgroundColor = Asset.ColorAssets.background.color
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 }
