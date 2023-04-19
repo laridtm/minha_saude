@@ -40,6 +40,7 @@ class RemindersViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.allowsSelection = false
+        tableView.backgroundColor = Asset.ColorAssets.background.color
         return tableView
     }()
     
@@ -64,7 +65,6 @@ class RemindersViewController: UIViewController {
         
         setupBackButton()
         
-        view.backgroundColor = Asset.ColorAssets.background.color
         view.addSubview(tableView)
         
         constrain(tableView, view) { tableView, view in

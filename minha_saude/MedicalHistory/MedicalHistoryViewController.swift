@@ -20,6 +20,8 @@ class MedicalHistoryViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.allowsSelection = false
+        tableView.backgroundColor = Asset.ColorAssets.background.color
+        
         return tableView
     }()
     
@@ -47,7 +49,7 @@ class MedicalHistoryViewController: UIViewController {
         
         setupBackButton()
         
-        view.backgroundColor = Asset.ColorAssets.background.color
+//        view.backgroundColor = Asset.ColorAssets.background.color
         view.addSubview(tableView)
         
         constrain(tableView, view) { tableView, view in
@@ -59,6 +61,7 @@ class MedicalHistoryViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Meu Histórico"
         backButton.tintColor = .black
+//        navigationController?.navigationBar.backgroundColor = Asset.ColorAssets.background.color
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 }
