@@ -71,6 +71,14 @@ class RemindersViewController: UIViewController {
     }
     
     @objc func addReminder() {
+        let reminderViewController = ReminderViewController(type: .new)
+        
+        if let sheet = reminderViewController.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+        
+        self.present(reminderViewController, animated: true)
         print("Add reminder")
     }
 }

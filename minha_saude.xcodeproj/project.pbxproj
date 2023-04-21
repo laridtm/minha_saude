@@ -12,6 +12,9 @@
 		53114D4429F2EBAE00778D46 /* RemindersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D4329F2EBAE00778D46 /* RemindersWorker.swift */; };
 		53114D4729F2EBE000778D46 /* RemindersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D4629F2EBE000778D46 /* RemindersRequest.swift */; };
 		53114D4929F2F0B100778D46 /* RemindersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D4829F2F0B100778D46 /* RemindersConfigurator.swift */; };
+		53114D4C29F2F84700778D46 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D4B29F2F84700778D46 /* ReminderView.swift */; };
+		53114D4F29F2FBD800778D46 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D4E29F2FBD800778D46 /* FilterView.swift */; };
+		53114D5129F2FDEB00778D46 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D5029F2FDEA00778D46 /* ReminderViewController.swift */; };
 		53788BDF29EF56D20091C01B /* MedicalHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BDE29EF56D20091C01B /* MedicalHistoryInteractor.swift */; };
 		53788BE129EF575C0091C01B /* MedicalHistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE029EF575C0091C01B /* MedicalHistoryWorker.swift */; };
 		53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */; };
@@ -74,6 +77,9 @@
 		53114D4329F2EBAE00778D46 /* RemindersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersWorker.swift; sourceTree = "<group>"; };
 		53114D4629F2EBE000778D46 /* RemindersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRequest.swift; sourceTree = "<group>"; };
 		53114D4829F2F0B100778D46 /* RemindersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersConfigurator.swift; sourceTree = "<group>"; };
+		53114D4B29F2F84700778D46 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		53114D4E29F2FBD800778D46 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		53114D5029F2FDEA00778D46 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		53788BDE29EF56D20091C01B /* MedicalHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryInteractor.swift; sourceTree = "<group>"; };
 		53788BE029EF575C0091C01B /* MedicalHistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryWorker.swift; sourceTree = "<group>"; };
 		53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryRequest.swift; sourceTree = "<group>"; };
@@ -168,6 +174,23 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		53114D4A29F2F82900778D46 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				53114D4B29F2F84700778D46 /* ReminderView.swift */,
+				53114D5029F2FDEA00778D46 /* ReminderViewController.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		53114D4D29F2FB8C00778D46 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				53114D4E29F2FBD800778D46 /* FilterView.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		53788BE229EF580B0091C01B /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +224,7 @@
 		53BCB43929DE1F9700B9A270 /* minha_saude */ = {
 			isa = PBXGroup;
 			children = (
+				53114D4D29F2FB8C00778D46 /* Filter */,
 				53D98D9E29EB1834005AB726 /* Initial */,
 				53BCB46A29DE2A9F00B9A270 /* Home */,
 				53D8AC2C29E608E5008138A9 /* Profile */,
@@ -274,6 +298,7 @@
 		53D2CB9029EE0F1300A896D6 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				53114D4A29F2F82900778D46 /* BottomSheet */,
 				53114D4529F2EBC400778D46 /* Request */,
 				53D2CB9329EE11C800A896D6 /* ReminderModel.swift */,
 				53D2CB9129EE0F3000A896D6 /* ReminderCell.swift */,
@@ -494,9 +519,11 @@
 				53788BE129EF575C0091C01B /* MedicalHistoryWorker.swift in Sources */,
 				53D2CB8D29EDF81A00A896D6 /* MedicalHistoryViewController.swift in Sources */,
 				53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */,
+				53114D4C29F2F84700778D46 /* ReminderView.swift in Sources */,
 				53D2CB8B29EDEE8C00A896D6 /* MedicalRecordCell.swift in Sources */,
 				53114D4029F2EB9100778D46 /* RemindersInteractor.swift in Sources */,
 				53BCB47129DE2DA500B9A270 /* QuickAccessView.swift in Sources */,
+				53114D5129F2FDEB00778D46 /* ReminderViewController.swift in Sources */,
 				53D98D9329EAD29A005AB726 /* UserInfoModel.swift in Sources */,
 				53D98D8F29EAC1B3005AB726 /* UserEmergencyInfoView.swift in Sources */,
 				53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */,
@@ -515,6 +542,7 @@
 				53C686E529E1BEEE004D4EE0 /* HomeInteractor.swift in Sources */,
 				53D98D9C29EB0D54005AB726 /* UserInfoRequest.swift in Sources */,
 				53D2CB9629EE141700A896D6 /* RemindersViewController.swift in Sources */,
+				53114D4F29F2FBD800778D46 /* FilterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
