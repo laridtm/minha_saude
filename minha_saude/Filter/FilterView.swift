@@ -1,8 +1,11 @@
 import Cartography
 import UIKit
 
+public protocol FilterViewDelegate: AnyObject {
+    func didSelectedFilter(text: String)
+}
+
 public final class FilterView: UIView {
-    
     struct Constants {
         static let filterFontSize: CGFloat = 13
         static let filterNameFontSize: CGFloat = 12
@@ -16,6 +19,8 @@ public final class FilterView: UIView {
     
     private let filterTitle: String
     private var filters: [String] = []
+    
+    public weak var delegate: FilterViewDelegate?
     
     private let filterLabel: UILabel = {
         let label = UILabel()
@@ -62,11 +67,18 @@ public final class FilterView: UIView {
         setupConstraints()
     }
     
+    public func selectFilter(filter: String) {
+        guard let index = filters.firstIndex(of: filter) else { return }
+        
+        collectionView.selectItem(at: IndexPath(row: index, section: 0), animated: false, scrollPosition: .centeredHorizontally)
+    }
+    
     private func configureSubviews() {
         backgroundColor = .white
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .centeredHorizontally)
         
         filterLabel.text = filterTitle
         
@@ -114,5 +126,10 @@ extension FilterView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let text = filters[indexPath.row]
         let width = widthOfString(text: text, usingFont: UIFont.systemFont(ofSize: Constants.filterNameFontSize)) + Constants.widthSpacing
         return CGSize(width: width, height: Constants.itemHeight)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let text = filters[indexPath.row]
+        delegate?.didSelectedFilter(text: text)
     }
 }

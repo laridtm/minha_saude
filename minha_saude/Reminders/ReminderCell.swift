@@ -46,6 +46,7 @@ public final class ReminderTableViewCell: UITableViewCell {
 
     private func configure() {
         backgroundColor = .white
+        selectionStyle = .none
         
         contentView.addSubview(timeLabel)
         contentView.addSubview(reminderNameLabel)
@@ -71,21 +72,6 @@ public final class ReminderTableViewCell: UITableViewCell {
     func configure(reminder: Reminder) {
         timeLabel.text = reminder.time
         reminderNameLabel.text = reminder.name
-        repetitionLabel.text = reminder.type.repetitionTitle
-    }
-}
-
-extension ReminderType {
-    var repetitionTitle: String {
-        switch self {
-        case .everyDay:
-            return "Todos os dias"
-        case .once:
-            return "Uma vez"
-        case .mondayToFriday:
-            return "Segunda à sexta"
-        case .weekends:
-            return "Finais de semana"
-        }
+        repetitionLabel.text = reminder.type.description
     }
 }

@@ -19,7 +19,6 @@ class RemindersViewController: UIViewController {
         tableView.estimatedRowHeight = Constants.estimatedRowHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.allowsSelection = false
         tableView.backgroundColor = Asset.ColorAssets.background.color
         return tableView
     }()
@@ -43,6 +42,7 @@ class RemindersViewController: UIViewController {
     private func configure() {
         tableView.dataSource = self
         tableView.delegate = self
+        
         let identifier = String(describing: ReminderTableViewCell.self)
         tableView.register(ReminderTableViewCell.self, forCellReuseIdentifier: identifier)
         
@@ -71,6 +71,7 @@ class RemindersViewController: UIViewController {
     }
     
     @objc func addReminder() {
+        //TODO: Passar essa logica para intercator -> router
         let reminderViewController = ReminderViewController(type: .new)
         
         if let sheet = reminderViewController.sheetPresentationController {
@@ -98,6 +99,18 @@ extension RemindersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: Passar essa logica para intercator -> router
+        let reminderViewController = ReminderViewController(type: .edit, reminder: reminders[indexPath.row])
+        
+        if let sheet = reminderViewController.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+        
+        self.present(reminderViewController, animated: true)
     }
 }
 

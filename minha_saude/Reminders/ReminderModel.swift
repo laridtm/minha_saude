@@ -17,9 +17,28 @@ public struct Reminder: Decodable {
     }
 }
 
-public enum ReminderType: String, Decodable {
+public enum ReminderType: String, Decodable, CaseIterable {
     case everyDay
     case once
     case mondayToFriday
     case weekends
+}
+
+extension ReminderType {
+    var description: String {
+        switch self {
+        case .everyDay:
+            return "Todos os dias"
+        case .once:
+            return "Uma vez"
+        case .mondayToFriday:
+            return "Seg. à sexta"
+        case .weekends:
+            return "Finais de semana"
+        }
+    }
+    
+    static func withDescription(text: String) -> ReminderType {
+        return self.allCases.first { $0.description == text } ?? .everyDay
+    }
 }

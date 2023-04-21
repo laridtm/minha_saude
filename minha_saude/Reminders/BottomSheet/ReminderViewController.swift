@@ -8,6 +8,7 @@ public enum ReminderViewControllerType {
 
 class ReminderViewController: UIViewController {
     private let type: ReminderViewControllerType
+    private let reminder: Reminder?
     
     private let reminderView: ReminderView = {
         let view = ReminderView()
@@ -15,8 +16,9 @@ class ReminderViewController: UIViewController {
         return view
     }()
     
-    public init(type: ReminderViewControllerType) {
+    public init(type: ReminderViewControllerType, reminder: Reminder? = nil) {
         self.type = type
+        self.reminder = reminder
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,8 +36,23 @@ class ReminderViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(reminderView)
         
+        reminderView.delegate = self
+        reminderView.configure(type: type, reminder: reminder)
+        
         constrain(reminderView, view) { reminder, view in
             reminder.edges == view.edges
         }
+    }
+}
+
+extension ReminderViewController: ReminderViewDelegate {
+    func didTouchInSave(name: String?, date: Date, type: ReminderType) {
+        //TODO: Se o type for new -> mandar para a interactor adicionar
+        // Se for edit -> mandar para a interactor editar
+    }
+    
+    func didTouchInRemove() {
+        //TODO: guard let para ver se o reminder não é nil
+        //enviar para a interactor remover o reminder pelo id (reminder.id)
     }
 }

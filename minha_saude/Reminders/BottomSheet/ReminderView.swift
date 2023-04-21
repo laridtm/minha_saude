@@ -1,6 +1,11 @@
 import Cartography
 import UIKit
 
+public protocol ReminderViewDelegate: AnyObject {
+    func didTouchInSave(name: String?, date: Date, type: ReminderType)
+    func didTouchInRemove()
+}
+
 public final class ReminderView: UIView {
     
     struct Constants {
@@ -13,6 +18,9 @@ public final class ReminderView: UIView {
         static let borderSpacing: CGFloat = 25
         static let middleSpacing: CGFloat = 20
     }
+    
+    private var selectedReminderType: ReminderType = .everyDay
+    public weak var delegate: ReminderViewDelegate?
     
     private let reminderLabel: UILabel = {
         let label = UILabel()
@@ -31,7 +39,7 @@ public final class ReminderView: UIView {
     }()
     
     private lazy var filters: FilterView = {
-        FilterView(filterTitle: "Repetir:", filters: ["Todos os dias", "Uma vez", "Seg. à sexta", "Finais de semana"])
+        FilterView(filterTitle: "Repetir:", filters: ReminderType.allCases.map { $0.description })
     }()
     
     private lazy var reminderNameTextField: UITextField = {
@@ -73,17 +81,20 @@ public final class ReminderView: UIView {
     }
     
     @objc private func saveReminder() {
-//        let reminder = Reminder(id: , name: reminderNameTextField.text, time: , type: )
-//        interactor.saveProfile(userProfile: userProfile)
-        print("Save reminder")
+        delegate?.didTouchInSave(
+            name: reminderNameTextField.text,
+            date: datePicker.date,
+            type: selectedReminderType
+        )
     }
     
     @objc private func deleteReminder() {
-        print("Delete reminder")
+        delegate?.didTouchInRemove()
     }
     
     private func configureSubviews() {
         backgroundColor = .white
+        filters.delegate = self
         
         addSubview(reminderLabel)
         addSubview(datePicker)
@@ -130,7 +141,26 @@ public final class ReminderView: UIView {
         }
     }
     
-//    public func configure(info: UserInfo) {
-//        fullNameLabel.text = info.fullName
-//    }
+    public func configure(type: ReminderViewControllerType, reminder: Reminder?){
+        deleteButton.isHidden = type == .new
+        guard let rem = reminder, type != .new else { return }
+        
+        reminderNameTextField.text = rem.name
+       
+        let splittedDate = rem.time.split(separator: ":")
+        let hour = Int(splittedDate[0]) ?? 0
+        let minute = Int(splittedDate[1]) ?? 0
+        
+        let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: Date()) ?? Date()
+        
+        datePicker.setDate(date, animated: true)
+        filters.selectFilter(filter: rem.type.description)
+        
+    }
+}
+
+extension ReminderView: FilterViewDelegate {
+    public func didSelectedFilter(text: String) {
+        selectedReminderType = ReminderType.withDescription(text: text)
+    }
 }
