@@ -59,7 +59,19 @@ class RemindersViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Lembretes"
         backButton.tintColor = .black
+        let rightBarButtonItem = UIBarButtonItem.init(
+            image: UIImage(named: Asset.Assets.addButton.name),
+            style: .done,
+            target: self,
+            action: #selector(addReminder)
+        )
+        rightBarButtonItem.tintColor = .black
+        navigationItem.rightBarButtonItem = rightBarButtonItem
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    @objc func addReminder() {
+        print("Add reminder")
     }
 }
 
