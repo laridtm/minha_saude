@@ -15,6 +15,7 @@
 		53114D4C29F2F84700778D46 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D4B29F2F84700778D46 /* ReminderView.swift */; };
 		53114D4F29F2FBD800778D46 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D4E29F2FBD800778D46 /* FilterView.swift */; };
 		53114D5129F2FDEB00778D46 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D5029F2FDEA00778D46 /* ReminderViewController.swift */; };
+		53114D5329F3120C00778D46 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53114D5229F3120C00778D46 /* FilterCell.swift */; };
 		53788BDF29EF56D20091C01B /* MedicalHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BDE29EF56D20091C01B /* MedicalHistoryInteractor.swift */; };
 		53788BE129EF575C0091C01B /* MedicalHistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE029EF575C0091C01B /* MedicalHistoryWorker.swift */; };
 		53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */; };
@@ -80,6 +81,7 @@
 		53114D4B29F2F84700778D46 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		53114D4E29F2FBD800778D46 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		53114D5029F2FDEA00778D46 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		53114D5229F3120C00778D46 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		53788BDE29EF56D20091C01B /* MedicalHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryInteractor.swift; sourceTree = "<group>"; };
 		53788BE029EF575C0091C01B /* MedicalHistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryWorker.swift; sourceTree = "<group>"; };
 		53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryRequest.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				53114D4E29F2FBD800778D46 /* FilterView.swift */,
+				53114D5229F3120C00778D46 /* FilterCell.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				53C686E729E1C1F9004D4EE0 /* HomeConfigurator.swift in Sources */,
 				53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */,
 				53D2CB9229EE0F3000A896D6 /* ReminderCell.swift in Sources */,
+				53114D5329F3120C00778D46 /* FilterCell.swift in Sources */,
 				53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */,
 				53D8AC3029E61D83008138A9 /* UserProfileModel.swift in Sources */,
 				53D8AC3229E620FC008138A9 /* ProfileInteractor.swift in Sources */,

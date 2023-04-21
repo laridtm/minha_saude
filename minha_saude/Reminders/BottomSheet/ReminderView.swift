@@ -8,6 +8,10 @@ public final class ReminderView: UIView {
         static let cornerRadius: CGFloat = 6
         static let datePickerHeight: CGFloat = 120
         static let datePickerWidth: CGFloat = 375
+        static let minSpacing: CGFloat = 10
+        static let maxSpacing: CGFloat = 45
+        static let borderSpacing: CGFloat = 25
+        static let middleSpacing: CGFloat = 20
     }
     
     private let reminderLabel: UILabel = {
@@ -24,6 +28,10 @@ public final class ReminderView: UIView {
         picker.datePickerMode = .time
         picker.preferredDatePickerStyle = .wheels
         return picker
+    }()
+    
+    private lazy var filters: FilterView = {
+        FilterView(filterTitle: "Repetir:", filters: ["Todos os dias", "Uma vez", "Seg. à sexta", "Finais de semana"])
     }()
     
     private lazy var reminderNameTextField: UITextField = {
@@ -79,6 +87,7 @@ public final class ReminderView: UIView {
         
         addSubview(reminderLabel)
         addSubview(datePicker)
+        addSubview(filters)
         addSubview(reminderNameTextField)
         addSubview(saveButton)
         addSubview(deleteButton)
@@ -88,30 +97,35 @@ public final class ReminderView: UIView {
         constrain(
             reminderLabel,
             datePicker,
+            filters,
             reminderNameTextField,
             saveButton,
             deleteButton,
             self
-        ) { reminder, date, reminderName, save, delete, view in
+        ) { reminder, date, filters, reminderName, save, delete, view in
             
-            reminder.top == view.top + 45
+            reminder.top == view.top + Constants.maxSpacing
             reminder.centerX == view.centerX
             
-            date.top == reminder.bottom + 15
-            date.leading == view.leading + 25
-            date.trailing == view.trailing - 25
+            date.top == reminder.bottom + Constants.minSpacing
+            date.leading == view.leading + Constants.borderSpacing
+            date.trailing == view.trailing - Constants.borderSpacing
             date.height == Constants.datePickerHeight
             date.width == Constants.datePickerWidth
             
-            reminderName.top == date.bottom + 20
-            reminderName.leading == view.leading + 25
-            reminderName.trailing == view.trailing - 25
+            filters.top == date.bottom + Constants.minSpacing
+            filters.leading == view.leading + Constants.borderSpacing
+            filters.trailing == view.trailing - Constants.borderSpacing
             
-            save.top == reminderName.bottom + 20
-            save.leading == view.leading + 25
-            save.trailing == view.trailing - 25
+            reminderName.top == filters.bottom + Constants.middleSpacing
+            reminderName.leading == view.leading + Constants.borderSpacing
+            reminderName.trailing == view.trailing - Constants.borderSpacing
             
-            delete.top == save.bottom + 10
+            save.top == reminderName.bottom + Constants.middleSpacing
+            save.leading == view.leading + Constants.borderSpacing
+            save.trailing == view.trailing - Constants.borderSpacing
+            
+            delete.top == save.bottom + Constants.minSpacing
             delete.centerX == view.centerX
         }
     }

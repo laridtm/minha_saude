@@ -79,7 +79,6 @@ class RemindersViewController: UIViewController {
             }
         
         self.present(reminderViewController, animated: true)
-        print("Add reminder")
     }
 }
 
