@@ -19,7 +19,7 @@ public final class HomeRouter: HomeRoutingLogic {
     }
     
     public func routeToReminders() {
-        let remindersViewController = RemindersViewController()
+        let remindersViewController = RemindersConfigurator().resolve()
         viewController?.navigationController?.pushViewController(remindersViewController, animated: true)
     }
     

@@ -1,38 +1,18 @@
 import Cartography
 import UIKit
 
+protocol RemindersDisplayLogic: AnyObject {
+    func displayReminders(_ reminders: [Reminder])
+}
+
 class RemindersViewController: UIViewController {
     
     struct Constants {
         static let estimatedRowHeight: CGFloat = 77
     }
     
-    private var reminders: [Reminder] = [
-        .init(
-            id: "1",
-            name: "Remédio Pressão",
-            time: "12:00",
-            repetition: .everyDay
-        ),
-        .init(
-            id: "2",
-            name: "Remédio Pressão",
-            time: "12:00",
-            repetition: .once
-        ),
-        .init(
-            id: "3",
-            name: "Remédio Pressão",
-            time: "12:00",
-            repetition: .weekends
-        ),
-        .init(
-            id: "4",
-            name: "Remédio Pressão",
-            time: "12:00",
-            repetition: .mondayToFriday
-        )
-    ]
+    private let interactor: RemindersBusinessLogic
+    private var reminders: [Reminder] = []
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -44,7 +24,9 @@ class RemindersViewController: UIViewController {
         return tableView
     }()
     
-    public init() {
+    public init(interactor: RemindersBusinessLogic) {
+        self.interactor = interactor
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,6 +37,7 @@ class RemindersViewController: UIViewController {
         super.viewDidLoad()
         
         configure()
+        interactor.viewDidLoad()
     }
     
     private func configure() {
@@ -96,5 +79,12 @@ extension RemindersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+}
+
+extension RemindersViewController: RemindersDisplayLogic {
+    func displayReminders(_ reminders: [Reminder]) {
+        self.reminders = reminders
+        tableView.reloadData()
     }
 }

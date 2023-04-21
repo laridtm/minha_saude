@@ -2,22 +2,22 @@ public struct Reminder: Decodable {
     let id: String
     let name: String
     let time: String
-    let repetition: ReminderRepetition
+    let type: ReminderType
     
     public init(
         id: String,
         name: String,
         time: String,
-        repetition: ReminderRepetition
+        type: ReminderType
     ) {
         self.id = id
         self.name = name
         self.time = time
-        self.repetition = repetition
+        self.type = type
     }
 }
 
-public enum ReminderRepetition: Decodable {
+public enum ReminderType: String, Decodable {
     case everyDay
     case once
     case mondayToFriday

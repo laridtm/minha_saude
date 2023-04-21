@@ -71,11 +71,11 @@ public final class ReminderTableViewCell: UITableViewCell {
     func configure(reminder: Reminder) {
         timeLabel.text = reminder.time
         reminderNameLabel.text = reminder.name
-        repetitionLabel.text = reminder.repetition.repetitionTitle
+        repetitionLabel.text = reminder.type.repetitionTitle
     }
 }
 
-extension ReminderRepetition {
+extension ReminderType {
     var repetitionTitle: String {
         switch self {
         case .everyDay:
