@@ -1,7 +1,7 @@
 import Foundation
 
 public struct MedicalRecord: Decodable {
-    let id: String
+    let id: String?
     let date: Date
     let hospital: String
     let professional: String
@@ -10,7 +10,7 @@ public struct MedicalRecord: Decodable {
     let type: MedicalRecordType
     
     public init(
-        id: String,
+        id: String? = nil,
         date: Date,
         hospital: String,
         professional: String,
@@ -52,7 +52,7 @@ extension MedicalRecordType {
 }
 
 
-extension MedicalRecord {
+extension MedicalRecord: Encodable {
     enum CodingKeys: String, CodingKey {
         case id
         case date
@@ -61,6 +61,23 @@ extension MedicalRecord {
         case name
         case observation
         case type
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        if let recordId = id {
+            try container.encode(recordId, forKey: .id)
+        }
+        
+        let iso8601DateFormatter = ISO8601DateFormatter()
+        iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
+        try container.encode(iso8601DateFormatter.string(from: date), forKey: .date)
+        try container.encode(hospital, forKey: .hospital)
+        try container.encode(professional, forKey: .professional)
+        try container.encode(name, forKey: .name)
+        try container.encode(observation, forKey: .observation)
+        try container.encode(type.rawValue, forKey: .type)
     }
     
     public init(from decoder: Decoder) throws {

@@ -30,7 +30,6 @@ class MedicalHistoryViewController: UIViewController {
         tableView.estimatedRowHeight = Constants.estimatedRowHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.allowsSelection = false
         tableView.backgroundColor = Asset.ColorAssets.background.color
         
         return tableView
@@ -101,14 +100,14 @@ class MedicalHistoryViewController: UIViewController {
     
     @objc func addRecord() {
         //TODO: Passar essa logica para intercator -> router
-//        let reminderViewController = ReminderConfigurator().resolve(delegate: self, type: .new)
-//
-//        if let sheet = reminderViewController.sheetPresentationController {
-//            sheet.detents = [.medium()]
-//            sheet.largestUndimmedDetentIdentifier = .medium
-//        }
-//
-//        self.present(reminderViewController, animated: true)
+        let recordViewController = MedicalRecordConfigurator().resolve(delegate: self, type: .new)
+
+        if let sheet = recordViewController.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.largestUndimmedDetentIdentifier = .medium
+        }
+
+        self.present(recordViewController, animated: true)
     }
 }
 
@@ -129,6 +128,18 @@ extension MedicalHistoryViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: Passar essa logica para intercator -> route
+        let recordViewController = MedicalRecordConfigurator().resolve(delegate: self, type: .edit, record: records[indexPath.row])
+
+        if let sheet = recordViewController.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.largestUndimmedDetentIdentifier = .medium
+        }
+
+        self.present(recordViewController, animated: true)
+    }
 }
 
 extension MedicalHistoryViewController: MedicalHistoryDisplayLogic {
@@ -147,5 +158,11 @@ extension MedicalHistoryViewController: FilterViewDelegate {
         }
         
         interactor.loadMedicalHistory(filterType: recordType)
+    }
+}
+
+extension MedicalHistoryViewController: MedicalRecordDisplayDelegate {
+    func viewWillDismiss() {
+        interactor.loadMedicalHistory(filterType: nil)
     }
 }

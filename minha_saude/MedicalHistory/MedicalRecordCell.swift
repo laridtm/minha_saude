@@ -58,6 +58,7 @@ public final class MedicalRecordTableViewCell: UITableViewCell {
 
     private func configure() {
         backgroundColor = Asset.ColorAssets.background.color
+        selectionStyle = .none
         
         contentView.addSubview(roundedView)
         contentView.addSubview(typeImageView)
