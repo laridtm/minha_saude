@@ -21,6 +21,9 @@
 		53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */; };
 		53788BE629EF59260091C01B /* MedicalHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE529EF59260091C01B /* MedicalHistoryPresenter.swift */; };
 		53788BE829EF5BAB0091C01B /* MedicalHistoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53788BE729EF5BAB0091C01B /* MedicalHistoryConfigurator.swift */; };
+		538BCE4429FD527700CBABBA /* ReminderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE4329FD527700CBABBA /* ReminderInteractor.swift */; };
+		538BCE4829FD626800CBABBA /* ReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE4729FD626800CBABBA /* ReminderPresenter.swift */; };
+		538BCE4A29FD640B00CBABBA /* ReminderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE4929FD640B00CBABBA /* ReminderConfigurator.swift */; };
 		53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */; };
 		53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */; };
 		53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */; };
@@ -87,6 +90,9 @@
 		53788BE329EF581B0091C01B /* MedicalHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryRequest.swift; sourceTree = "<group>"; };
 		53788BE529EF59260091C01B /* MedicalHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryPresenter.swift; sourceTree = "<group>"; };
 		53788BE729EF5BAB0091C01B /* MedicalHistoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryConfigurator.swift; sourceTree = "<group>"; };
+		538BCE4329FD527700CBABBA /* ReminderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInteractor.swift; sourceTree = "<group>"; };
+		538BCE4729FD626800CBABBA /* ReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPresenter.swift; sourceTree = "<group>"; };
+		538BCE4929FD640B00CBABBA /* ReminderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderConfigurator.swift; sourceTree = "<group>"; };
 		53BCB43729DE1F9700B9A270 /* minha_saude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minha_saude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +187,9 @@
 			children = (
 				53114D4B29F2F84700778D46 /* ReminderView.swift */,
 				53114D5029F2FDEA00778D46 /* ReminderViewController.swift */,
+				538BCE4329FD527700CBABBA /* ReminderInteractor.swift */,
+				538BCE4729FD626800CBABBA /* ReminderPresenter.swift */,
+				538BCE4929FD640B00CBABBA /* ReminderConfigurator.swift */,
 			);
 			path = BottomSheet;
 			sourceTree = "<group>";
@@ -512,6 +521,7 @@
 				53788BE629EF59260091C01B /* MedicalHistoryPresenter.swift in Sources */,
 				53788BDF29EF56D20091C01B /* MedicalHistoryInteractor.swift in Sources */,
 				53D8AC3729E62EF6008138A9 /* UserInfoView.swift in Sources */,
+				538BCE4429FD527700CBABBA /* ReminderInteractor.swift in Sources */,
 				53788BE829EF5BAB0091C01B /* MedicalHistoryConfigurator.swift in Sources */,
 				53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */,
 				53D8AC2E29E608F8008138A9 /* ProfileViewController.swift in Sources */,
@@ -540,8 +550,10 @@
 				53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */,
 				53D2CB9229EE0F3000A896D6 /* ReminderCell.swift in Sources */,
 				53114D5329F3120C00778D46 /* FilterCell.swift in Sources */,
+				538BCE4829FD626800CBABBA /* ReminderPresenter.swift in Sources */,
 				53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */,
 				53D8AC3029E61D83008138A9 /* UserProfileModel.swift in Sources */,
+				538BCE4A29FD640B00CBABBA /* ReminderConfigurator.swift in Sources */,
 				53D8AC3229E620FC008138A9 /* ProfileInteractor.swift in Sources */,
 				53C686E529E1BEEE004D4EE0 /* HomeInteractor.swift in Sources */,
 				53D98D9C29EB0D54005AB726 /* UserInfoRequest.swift in Sources */,

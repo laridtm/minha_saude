@@ -72,7 +72,7 @@ class RemindersViewController: UIViewController {
     
     @objc func addReminder() {
         //TODO: Passar essa logica para intercator -> router
-        let reminderViewController = ReminderViewController(type: .new)
+        let reminderViewController = ReminderConfigurator().resolve(delegate: self, type: .new)
         
         if let sheet = reminderViewController.sheetPresentationController {
                 sheet.detents = [.medium()]
@@ -103,7 +103,11 @@ extension RemindersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: Passar essa logica para intercator -> router
-        let reminderViewController = ReminderViewController(type: .edit, reminder: reminders[indexPath.row])
+        let reminderViewController = ReminderConfigurator().resolve(
+            delegate: self,
+            type: .edit,
+            reminder: reminders[indexPath.row]
+        )
         
         if let sheet = reminderViewController.sheetPresentationController {
                 sheet.detents = [.medium()]
@@ -118,5 +122,11 @@ extension RemindersViewController: RemindersDisplayLogic {
     func displayReminders(_ reminders: [Reminder]) {
         self.reminders = reminders
         tableView.reloadData()
+    }
+}
+
+extension RemindersViewController: ReminderDisplayDelegate {
+    func viewWillDismiss() {
+        interactor.viewDidLoad()
     }
 }

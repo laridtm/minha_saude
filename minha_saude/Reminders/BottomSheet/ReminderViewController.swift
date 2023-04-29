@@ -6,9 +6,20 @@ public enum ReminderViewControllerType {
     case edit
 }
 
+public protocol ReminderDisplayDelegate: AnyObject {
+    func viewWillDismiss()
+}
+                                        
+protocol ReminderDisplayLogic: AnyObject {
+    func dismissBottomSheet()
+}
+
 class ReminderViewController: UIViewController {
+    private let interactor: ReminderBusinessLogic
     private let type: ReminderViewControllerType
     private let reminder: Reminder?
+    
+    public weak var delegate: ReminderDisplayDelegate?
     
     private let reminderView: ReminderView = {
         let view = ReminderView()
@@ -16,7 +27,12 @@ class ReminderViewController: UIViewController {
         return view
     }()
     
-    public init(type: ReminderViewControllerType, reminder: Reminder? = nil) {
+    public init(
+        interactor: ReminderBusinessLogic,
+        type: ReminderViewControllerType,
+        reminder: Reminder? = nil
+    ) {
+        self.interactor = interactor
         self.type = type
         self.reminder = reminder
         
@@ -47,12 +63,23 @@ class ReminderViewController: UIViewController {
 
 extension ReminderViewController: ReminderViewDelegate {
     func didTouchInSave(name: String?, date: Date, type: ReminderType) {
-        //TODO: Se o type for new -> mandar para a interactor adicionar
-        // Se for edit -> mandar para a interactor editar
+        if self.type == .new {
+            interactor.saveNewReminder(name: name, date: date, type: type)
+        } else if self.type == .edit {
+            guard let reminderId = self.reminder?.id else { return }
+            interactor.saveEditedReminder(id: reminderId, name: name, date: date, type: type)
+        }
     }
     
     func didTouchInRemove() {
-        //TODO: guard let para ver se o reminder não é nil
-        //enviar para a interactor remover o reminder pelo id (reminder.id)
+        guard let reminderId = self.reminder?.id else { return }
+        interactor.deleteReminder(id: reminderId)
+    }
+}
+
+extension ReminderViewController: ReminderDisplayLogic {
+    func dismissBottomSheet() {
+        delegate?.viewWillDismiss()
+        dismiss(animated: true)
     }
 }

@@ -2,6 +2,9 @@ import Moya
 
 enum RemindersRequest {
     case fetchReminders(id: String)
+    case create(userId: String, reminder: Reminder)
+    case edit(userId: String, reminder: Reminder)
+    case delete(id: String)
 }
 
 extension RemindersRequest: TargetType {
@@ -13,6 +16,12 @@ extension RemindersRequest: TargetType {
         switch self {
         case .fetchReminders(let id):
             return "/reminders/\(id)"
+        case .create(let userId, _):
+            return "/reminders/\(userId)"
+        case .edit(let userId, let reminder):
+            return "/reminders/\(userId)/\(reminder.id ?? "")"
+        case .delete(let id):
+            return "/reminders/\(id)"
         }
     }
     
@@ -20,11 +29,26 @@ extension RemindersRequest: TargetType {
         switch self {
         case .fetchReminders:
             return .get
+        case .create:
+            return .post
+        case .edit:
+            return .put
+        case .delete:
+            return .delete
         }
     }
     
     var task: Moya.Task {
-        .requestPlain
+        switch self {
+        case .fetchReminders:
+            return .requestPlain
+        case .create(_, let reminder):
+            return .requestJSONEncodable(reminder)
+        case .edit(_, let reminder):
+            return .requestJSONEncodable(reminder)
+        case .delete:
+            return .requestPlain
+        }
     }
     
     var headers: [String : String]? {

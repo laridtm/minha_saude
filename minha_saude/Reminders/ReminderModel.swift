@@ -1,11 +1,11 @@
 public struct Reminder: Decodable {
-    let id: String
+    let id: String?
     let name: String
     let time: String
     let type: ReminderType
     
     public init(
-        id: String,
+        id: String? = nil,
         name: String,
         time: String,
         type: ReminderType
@@ -40,5 +40,24 @@ extension ReminderType {
     
     static func withDescription(text: String) -> ReminderType {
         return self.allCases.first { $0.description == text } ?? .everyDay
+    }
+}
+
+extension Reminder: Encodable {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case time
+        case type
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        if let reminderId = id {
+            try container.encode(reminderId, forKey: .id)
+        }
+        try container.encode(name, forKey: .name)
+        try container.encode(time, forKey: .time)
+        try container.encode(type.rawValue, forKey: .type)
     }
 }
