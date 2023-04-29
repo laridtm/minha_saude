@@ -1,7 +1,7 @@
 import Moya
 
 enum MedicalHistoryRequest {
-    case fetchMedicalHistory(id: String)
+    case fetchMedicalHistory(id: String, filterType: MedicalRecordType?)
 }
 
 extension MedicalHistoryRequest: TargetType {
@@ -11,7 +11,7 @@ extension MedicalHistoryRequest: TargetType {
     
     var path: String {
         switch self {
-        case .fetchMedicalHistory(let id):
+        case .fetchMedicalHistory(let id, _):
             return "/medical-record/\(id)"
         }
     }
@@ -24,7 +24,11 @@ extension MedicalHistoryRequest: TargetType {
     }
     
     var task: Moya.Task {
-        .requestPlain
+        switch self {
+        case .fetchMedicalHistory(_, let filter):
+            guard let filter = filter else { return .requestPlain }
+            return .requestParameters(parameters: ["filter": filter], encoding: URLEncoding.default)
+        }
     }
     
     var headers: [String : String]? {

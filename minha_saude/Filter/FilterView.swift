@@ -74,7 +74,7 @@ public final class FilterView: UIView {
     }
     
     private func configureSubviews() {
-        backgroundColor = .white
+        backgroundColor = .clear
         
         collectionView.delegate = self
         collectionView.dataSource = self

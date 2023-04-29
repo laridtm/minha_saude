@@ -28,11 +28,29 @@ public struct MedicalRecord: Decodable {
     }
 }
 
-public enum MedicalRecordType: String, Decodable {
+public enum MedicalRecordType: String, Decodable, CaseIterable {
     case appointment
     case exam
     case vaccine
 }
+
+extension MedicalRecordType {
+    var description: String {
+        switch self {
+        case .appointment:
+            return "Consulta"
+        case .exam:
+            return "Exame"
+        case .vaccine:
+            return "Vacina"
+        }
+    }
+    
+    static func withDescription(text: String) -> MedicalRecordType {
+        return self.allCases.first { $0.description == text } ?? .appointment
+    }
+}
+
 
 extension MedicalRecord {
     enum CodingKeys: String, CodingKey {

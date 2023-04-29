@@ -14,7 +14,7 @@ public final class FilterCollectionViewCell: UICollectionViewCell {
         didSet {
             layer.borderColor = isSelected ? Asset.ColorAssets.brandGreen.color.cgColor : Asset.ColorAssets.lightGray.color.cgColor
             filterLabel.textColor = isSelected ? Asset.ColorAssets.brandGreen.color : Asset.ColorAssets.lightGray.color
-            backgroundColor = isSelected ? Asset.ColorAssets.lightGreen.color : .clear
+            backgroundColor = isSelected ? Asset.ColorAssets.lightGreen.color : .white
         }
     }
     
@@ -40,6 +40,8 @@ public final class FilterCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = Constants.cornerRadius
         layer.borderWidth = Constants.borderWidth
         layer.borderColor = Asset.ColorAssets.lightGray.color.cgColor
+        
+        backgroundColor = .white
         
         addSubview(filterLabel)
         

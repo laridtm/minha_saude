@@ -1,16 +1,16 @@
 import Moya
 
 protocol MedicalHistoryWorkerLogic {
-    func fetchMedicalHistory(id: String, completion: @escaping(Result<[MedicalRecord], Error>) -> Void)
+    func fetchMedicalHistory(id: String, filterType: MedicalRecordType?, completion: @escaping(Result<[MedicalRecord], Error>) -> Void)
 }
 
 public final class MedicalHistoryWorker: MedicalHistoryWorkerLogic {
     init() { }
     
-    func fetchMedicalHistory(id: String, completion: @escaping(Result<[MedicalRecord], Error>) -> Void) {
+    func fetchMedicalHistory(id: String, filterType: MedicalRecordType?, completion: @escaping(Result<[MedicalRecord], Error>) -> Void) {
         let provider = MoyaProvider<MedicalHistoryRequest>()
         
-        provider.request(.fetchMedicalHistory(id: id)) { result in
+        provider.request(.fetchMedicalHistory(id: id, filterType: filterType)) { result in
             switch result {
             case .success(let response):
                 do {

@@ -1,5 +1,5 @@
 protocol MedicalHistoryBusinessLogic {
-    func viewDidLoad()
+    func loadMedicalHistory(filterType: MedicalRecordType?)
 }
 
 public final class MedicalHistoryInteractor: MedicalHistoryBusinessLogic {
@@ -11,12 +11,8 @@ public final class MedicalHistoryInteractor: MedicalHistoryBusinessLogic {
         self.presenter = presenter
     }
     
-    func viewDidLoad() {
-        loadMedicalHistory()
-    }
-    
-    private func loadMedicalHistory() {
-        worker.fetchMedicalHistory(id: "00897314921") { result in
+    func loadMedicalHistory(filterType: MedicalRecordType?) {
+        worker.fetchMedicalHistory(id: "00897314921", filterType: filterType) { result in
             switch result {
             case .success(let history):
                 self.presenter.presentMedicalHistory(history)
