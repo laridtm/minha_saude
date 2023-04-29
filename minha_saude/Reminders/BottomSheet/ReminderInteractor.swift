@@ -34,11 +34,32 @@ public final class ReminderInteractor: ReminderBusinessLogic {
     }
     
     public func saveEditedReminder(id: String, name: String?, date: Date, type: ReminderType) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let dateFormatted = dateFormatter.string(from: date)
         
+        let editedReminder: Reminder = .init(id: id, name: name ?? "", time: dateFormatted, type: type)
         
+        worker.editReminder(userId: "00897314921", reminder: editedReminder) { result in
+            switch result {
+            case .success:
+                self.presenter.editReminder()
+            case.failure(let error):
+                print(error)
+                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu editar o reminder
+            }
+        }
     }
     
     public func deleteReminder(id: String) {
-        
+        worker.deleteReminder(id: id) { result in
+            switch result {
+            case .success:
+                self.presenter.deleteReminder()
+            case.failure(let error):
+                print(error)
+                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu deletar o reminder
+            }
+        }
     }
 }

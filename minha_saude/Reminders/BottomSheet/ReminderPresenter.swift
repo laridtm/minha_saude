@@ -2,6 +2,8 @@ protocol ReminderPresentationLogic: AnyObject {
     var viewController: ReminderDisplayLogic? { get set }
     
     func createdReminder()
+    func editReminder()
+    func deleteReminder()
 }
 
 public final class ReminderPresenter: ReminderPresentationLogic {
@@ -9,7 +11,17 @@ public final class ReminderPresenter: ReminderPresentationLogic {
     
     init() {}
     
+    //TODO: criar feedback de sucesso
+    
     func createdReminder() {
+        viewController?.dismissBottomSheet()
+    }
+    
+    func editReminder() {
+        viewController?.dismissBottomSheet()
+    }
+    
+    func deleteReminder() {
         viewController?.dismissBottomSheet()
     }
 }

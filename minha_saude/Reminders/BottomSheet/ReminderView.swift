@@ -153,9 +153,9 @@ public final class ReminderView: UIView {
         
         let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: Date()) ?? Date()
         
+        selectedReminderType = rem.type
         datePicker.setDate(date, animated: true)
         filters.selectFilter(filter: rem.type.description)
-        
     }
 }
 
