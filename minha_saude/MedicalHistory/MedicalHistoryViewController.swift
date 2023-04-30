@@ -87,15 +87,29 @@ class MedicalHistoryViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Meu Histórico"
         backButton.tintColor = .black
-        let rightBarButtonItem = UIBarButtonItem.init(
+        
+        let addButton = UIBarButtonItem(
             image: UIImage(named: Asset.Assets.addButton.name),
             style: .done,
             target: self,
             action: #selector(addRecord)
         )
-        rightBarButtonItem.tintColor = .black
-        navigationItem.rightBarButtonItem = rightBarButtonItem
+        addButton.tintColor = .black
+        
+        let shareButton = UIBarButtonItem(
+            image: UIImage(named: Asset.Assets.export.name),
+            style: .done,
+            target: self,
+            action: #selector(share)
+        )
+        shareButton.tintColor = .black
+    
+        navigationItem.setRightBarButtonItems([shareButton, addButton], animated: true)
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    @objc func share() {
+        interactor.generatePDF()
     }
     
     @objc func addRecord() {

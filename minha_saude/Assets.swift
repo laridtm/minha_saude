@@ -31,6 +31,7 @@ public enum Asset {
     public static let clockLight = ImageAsset(name: "ClockLight")
     public static let defaultUserImage = ImageAsset(name: "DefaultUserImage")
     public static let exam = ImageAsset(name: "Exam")
+    public static let export = ImageAsset(name: "Export")
     public static let exportLight = ImageAsset(name: "ExportLight")
     public static let minhaSaudeLogo = ImageAsset(name: "MinhaSaudeLogo")
     public static let userLight = ImageAsset(name: "UserLight")

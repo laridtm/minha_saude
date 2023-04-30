@@ -1,6 +1,6 @@
 import Moya
 
-protocol MedicalHistoryWorkerLogic {
+public protocol MedicalHistoryWorkerLogic {
     func fetchMedicalHistory(
         id: String,
         options: FetchMedicalHistoryOptions,
@@ -15,7 +15,7 @@ public final class MedicalHistoryWorker: MedicalHistoryWorkerLogic {
     
     init() { }
     
-    func fetchMedicalHistory(
+    public func fetchMedicalHistory(
         id: String,
         options: FetchMedicalHistoryOptions,
         completion: @escaping(Result<[MedicalRecord], Error>) -> Void
@@ -39,7 +39,7 @@ public final class MedicalHistoryWorker: MedicalHistoryWorkerLogic {
         }
     }
     
-    func saveRecord(userId: String, record: MedicalRecord, completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func saveRecord(userId: String, record: MedicalRecord, completion: @escaping (Result<Bool, Error>) -> Void) {
         let provider = MoyaProvider<MedicalHistoryRequest>()
         
         provider.request(.create(userId: userId, record: record)) { result in
@@ -52,7 +52,7 @@ public final class MedicalHistoryWorker: MedicalHistoryWorkerLogic {
         }
     }
     
-    func editRecord(userId: String, record: MedicalRecord, completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func editRecord(userId: String, record: MedicalRecord, completion: @escaping (Result<Bool, Error>) -> Void) {
         let provider = MoyaProvider<MedicalHistoryRequest>()
         
         provider.request(.edit(userId: userId, record: record)) { result in
@@ -65,7 +65,7 @@ public final class MedicalHistoryWorker: MedicalHistoryWorkerLogic {
         }
     }
     
-    func deleteRecord(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func deleteRecord(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         let provider = MoyaProvider<MedicalHistoryRequest>()
         
         provider.request(.delete(id: id)) { result in

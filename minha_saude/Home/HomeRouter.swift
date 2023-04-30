@@ -4,7 +4,6 @@ public protocol HomeRoutingLogic {
     func routeToProfile(userId: String)
     func routeToReminders(userId: String)
     func routeToHistory(userId: String)
-    func shareHistory()
 }
 
 public final class HomeRouter: HomeRoutingLogic {
@@ -26,9 +25,5 @@ public final class HomeRouter: HomeRoutingLogic {
     public func routeToHistory(userId: String) {
         let medicalHistoryViewController = MedicalHistoryConfigurator().resolve(userId: userId)
         viewController?.navigationController?.pushViewController(medicalHistoryViewController, animated: true)
-    }
-    
-    public func shareHistory() {
-        print("Compartilhando histórico")
     }
 }

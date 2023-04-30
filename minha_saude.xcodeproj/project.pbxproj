@@ -39,6 +39,8 @@
 		538BCE6629FEE11300CBABBA /* InitialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE6529FEE11300CBABBA /* InitialRouter.swift */; };
 		538BCE6829FEE64F00CBABBA /* MedicalHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE6729FEE64F00CBABBA /* MedicalHistoryRouter.swift */; };
 		538BCE6A29FEEAFC00CBABBA /* RemindersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE6929FEEAFC00CBABBA /* RemindersRouter.swift */; };
+		538BCE6D29FEF61100CBABBA /* PdfRender+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE6C29FEF61100CBABBA /* PdfRender+Extensions.swift */; };
+		538BCE6F29FEF69000CBABBA /* PdfRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE6E29FEF69000CBABBA /* PdfRender.swift */; };
 		53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */; };
 		53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */; };
 		53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */; };
@@ -123,6 +125,8 @@
 		538BCE6529FEE11300CBABBA /* InitialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRouter.swift; sourceTree = "<group>"; };
 		538BCE6729FEE64F00CBABBA /* MedicalHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryRouter.swift; sourceTree = "<group>"; };
 		538BCE6929FEEAFC00CBABBA /* RemindersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRouter.swift; sourceTree = "<group>"; };
+		538BCE6C29FEF61100CBABBA /* PdfRender+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PdfRender+Extensions.swift"; sourceTree = "<group>"; };
+		538BCE6E29FEF69000CBABBA /* PdfRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfRender.swift; sourceTree = "<group>"; };
 		53BCB43729DE1F9700B9A270 /* minha_saude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minha_saude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +265,15 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		538BCE6B29FEF60500CBABBA /* Pdf */ = {
+			isa = PBXGroup;
+			children = (
+				538BCE6C29FEF61100CBABBA /* PdfRender+Extensions.swift */,
+				538BCE6E29FEF69000CBABBA /* PdfRender.swift */,
+			);
+			path = Pdf;
+			sourceTree = "<group>";
+		};
 		53BCB42E29DE1F9700B9A270 = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +299,7 @@
 		53BCB43929DE1F9700B9A270 /* minha_saude */ = {
 			isa = PBXGroup;
 			children = (
+				538BCE6B29FEF60500CBABBA /* Pdf */,
 				53114D4D29F2FB8C00778D46 /* Filter */,
 				53D98D9E29EB1834005AB726 /* Initial */,
 				53BCB46A29DE2A9F00B9A270 /* Home */,
@@ -595,6 +609,7 @@
 				53788BE129EF575C0091C01B /* MedicalHistoryWorker.swift in Sources */,
 				53D2CB8D29EDF81A00A896D6 /* MedicalHistoryViewController.swift in Sources */,
 				53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */,
+				538BCE6F29FEF69000CBABBA /* PdfRender.swift in Sources */,
 				538BCE4F29FD91AE00CBABBA /* MedicalRecordViewController.swift in Sources */,
 				53114D4C29F2F84700778D46 /* ReminderView.swift in Sources */,
 				538BCE6A29FEEAFC00CBABBA /* RemindersRouter.swift in Sources */,
@@ -606,6 +621,7 @@
 				53114D5129F2FDEB00778D46 /* ReminderViewController.swift in Sources */,
 				53D98D9329EAD29A005AB726 /* UserInfoModel.swift in Sources */,
 				53D98D8F29EAC1B3005AB726 /* UserEmergencyInfoView.swift in Sources */,
+				538BCE6D29FEF61100CBABBA /* PdfRender+Extensions.swift in Sources */,
 				53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */,
 				538BCE4D29FD8DAE00CBABBA /* MedicalRecordView.swift in Sources */,
 				53D98D9929EB0BF9005AB726 /* HomeWorker.swift in Sources */,

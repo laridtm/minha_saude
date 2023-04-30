@@ -10,6 +10,7 @@ public final class HomeInteractor: HomeBusinessLogic {
     private let homeWorker: HomeWorkerLogic
     private let medicalHistoryWorker: MedicalHistoryWorkerLogic
     private let remindersWorker: RemindersWorkerLogic
+    private let pdfRender: PdfRederingLogic
     
     init(
         userId: String,
@@ -17,7 +18,8 @@ public final class HomeInteractor: HomeBusinessLogic {
         presenter: HomePresentationLogic,
         homeWorker: HomeWorkerLogic,
         medicalHistoryWorker: MedicalHistoryWorkerLogic,
-        remindersWorker: RemindersWorkerLogic
+        remindersWorker: RemindersWorkerLogic,
+        pdfRender: PdfRederingLogic
     ) {
         self.userId = userId
         self.router = router
@@ -25,6 +27,7 @@ public final class HomeInteractor: HomeBusinessLogic {
         self.homeWorker = homeWorker
         self.medicalHistoryWorker = medicalHistoryWorker
         self.remindersWorker = remindersWorker
+        self.pdfRender = pdfRender
     }
     
     func didTouchQuickAccess(type: QuickAcessView.QuickAccessType) {
@@ -36,7 +39,7 @@ public final class HomeInteractor: HomeBusinessLogic {
         case .history:
             router.routeToHistory(userId: userId)
         case .share:
-            router.shareHistory()
+            pdfRender.renderAndSharePDF()
         }
     }
     
