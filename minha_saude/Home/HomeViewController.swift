@@ -3,6 +3,8 @@ import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
     func displayUserInfo(info: UserInfo)
+    func displayRecords(_ records: [MedicalRecord])
+    func displayReminders(_ reminders: [Reminder])
 }
 
 class HomeViewController: UIViewController {
@@ -11,9 +13,12 @@ class HomeViewController: UIViewController {
         static let layoutMargins: CGFloat = 10
         static let stackViewSpacing: CGFloat = 24
         static let userInfoSpacing: CGFloat = 17
+        static let estimatedRowHeight: CGFloat = 77
     }
     
     private let interactor: HomeBusinessLogic
+    private var reminders: [Reminder] = []
+    private var records: [MedicalRecord] = []
     
     private let userInfoView: UserInfoView = {
         let view = UserInfoView()
@@ -38,6 +43,15 @@ class HomeViewController: UIViewController {
         return stackView
     }()
     
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.estimatedRowHeight = Constants.estimatedRowHeight
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = Asset.ColorAssets.background.color
+        return tableView
+    }()
+    
     public init(interactor: HomeBusinessLogic) {
         self.interactor = interactor
         
@@ -58,6 +72,17 @@ class HomeViewController: UIViewController {
     private func configure() {
         view.addSubview(userInfoView)
         view.addSubview(userEmergencyInfoView)
+        view.addSubview(tableView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        let reminderIdentifier = String(describing: ReminderTableViewCell.self)
+        tableView.register(ReminderTableViewCell.self, forCellReuseIdentifier: reminderIdentifier)
+        
+        let recordIdentifier = String(describing: MedicalRecordTableViewCell.self)
+        tableView.register(MedicalRecordTableViewCell.self, forCellReuseIdentifier: recordIdentifier)
+        
         setupStackView()
         setupConstraints()
     }
@@ -74,7 +99,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        constrain(userInfoView, userEmergencyInfoView, stackView, view) { userInfo, emergencyInfo, stack, view in
+        constrain(userInfoView, userEmergencyInfoView, stackView, tableView, view) { userInfo, emergencyInfo, stack, table, view in
             userInfo.top == view.safeAreaLayoutGuide.top
             userInfo.leading == view.leading
             userInfo.trailing == view.trailing
@@ -86,11 +111,26 @@ class HomeViewController: UIViewController {
             stack.top == emergencyInfo.bottom + Constants.stackViewSpacing
             stack.leading == view.leading
             stack.trailing == view.trailing
+            
+            table.top == stack.bottom
+            table.leading == view.leading
+            table.trailing == view.trailing
+            table.bottom == view.bottom
         }
     }
 }
 
 extension HomeViewController: HomeDisplayLogic {
+    func displayRecords(_ records: [MedicalRecord]) {
+        self.records = records
+        tableView.reloadData()
+    }
+    
+    func displayReminders(_ reminders: [Reminder]) {
+        self.reminders = reminders
+        tableView.reloadData()
+    }
+    
     func displayUserInfo(info: UserInfo) {
         userInfoView.configure(info: info)
         userEmergencyInfoView.configure(info: info)
@@ -100,5 +140,49 @@ extension HomeViewController: HomeDisplayLogic {
 extension HomeViewController: QuickAccessViewDelegate {
     func didTouchQuickAccess(type: QuickAcessView.QuickAccessType) {
         interactor.didTouchQuickAccess(type: type)
+    }
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == 0 ? reminders.count : records.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let identifier = String(describing: ReminderTableViewCell.self)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ReminderTableViewCell else { return UITableViewCell()}
+            
+            cell.configure(reminder: reminders[indexPath.row])
+            
+            return cell
+        }
+        
+        let identifier = String(describing: MedicalRecordTableViewCell.self)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MedicalRecordTableViewCell else { return UITableViewCell()}
+        
+        cell.configure(record: records[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: Passar essa logica para intercator -> route
+//        let recordViewController = MedicalRecordConfigurator().resolve(delegate: self, type: .edit, record: records[indexPath.row])
+//
+//        if let sheet = recordViewController.sheetPresentationController {
+//            sheet.detents = [.medium()]
+//            sheet.largestUndimmedDetentIdentifier = .medium
+//        }
+//
+//        self.present(recordViewController, animated: true)
     }
 }

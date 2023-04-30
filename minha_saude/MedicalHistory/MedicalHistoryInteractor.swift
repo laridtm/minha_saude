@@ -12,7 +12,7 @@ public final class MedicalHistoryInteractor: MedicalHistoryBusinessLogic {
     }
     
     func loadMedicalHistory(filterType: MedicalRecordType?) {
-        worker.fetchMedicalHistory(id: "00897314921", filterType: filterType) { result in
+        worker.fetchMedicalHistory(id: "00897314921", options: .init(filterType: filterType)) { result in
             switch result {
             case .success(let history):
                 self.presenter.presentMedicalHistory(history)

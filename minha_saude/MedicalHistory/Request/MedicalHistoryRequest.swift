@@ -1,7 +1,7 @@
 import Moya
 
 enum MedicalHistoryRequest {
-    case fetchMedicalHistory(id: String, filterType: MedicalRecordType?)
+    case fetchMedicalHistory(id: String, options: FetchMedicalHistoryOptions)
     case create(userId: String, record: MedicalRecord)
     case edit(userId: String, record: MedicalRecord)
     case delete(id: String)
@@ -40,9 +40,8 @@ extension MedicalHistoryRequest: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .fetchMedicalHistory(_, let filter):
-            guard let filter = filter else { return .requestPlain }
-            return .requestParameters(parameters: ["filter": filter], encoding: URLEncoding.default)
+        case .fetchMedicalHistory(_, let options):
+            return .requestParameters(parameters: options.convertToMap(), encoding: URLEncoding.default)
         case .create(_, let record):
             return .requestJSONEncodable(record)
         case .edit(_, let record):
