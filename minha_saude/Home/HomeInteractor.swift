@@ -40,6 +40,7 @@ public final class HomeInteractor: HomeBusinessLogic {
     func viewDidLoad() {
         loadUserInfo()
         loadTopRecords()
+        loadTopReminders()
     }
     
     private func loadUserInfo() {
@@ -55,7 +56,15 @@ public final class HomeInteractor: HomeBusinessLogic {
     }
     
     private func loadTopReminders() {
-        
+        remindersWorker.fetchReminders(id: "00897314921", size: 2) { result in
+            switch result {
+            case .success(let reminders):
+                self.presenter.presentReminders(reminders)
+            case .failure(let error):
+                //TODO: Enviar um feedback de error para a home view controller
+                print(error)
+            }
+        }
     }
     
     private func loadTopRecords() {

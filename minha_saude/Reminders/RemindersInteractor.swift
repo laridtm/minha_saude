@@ -16,7 +16,7 @@ public final class RemindersInteractor: RemindersBusinessLogic {
     }
     
     private func loadReminders() {
-        worker.fetchReminders(id: "00897314921") { result in
+        worker.fetchReminders(id: "00897314921", size: nil) { result in
             switch result {
             case .success(let reminders):
                 self.presenter.presentReminders(reminders)

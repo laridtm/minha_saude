@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = Asset.ColorAssets.background.color
+        tableView.sectionHeaderTopPadding = 0
         return tableView
     }()
     
@@ -76,6 +77,9 @@ class HomeViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        let sectionIdentifier = String(describing: HomeHeaderSectionView.self)
+        tableView.register(HomeHeaderSectionView.self, forHeaderFooterViewReuseIdentifier: sectionIdentifier)
         
         let reminderIdentifier = String(describing: ReminderTableViewCell.self)
         tableView.register(ReminderTableViewCell.self, forCellReuseIdentifier: reminderIdentifier)
@@ -112,7 +116,7 @@ class HomeViewController: UIViewController {
             stack.leading == view.leading
             stack.trailing == view.trailing
             
-            table.top == stack.bottom
+            table.top == stack.bottom + Constants.stackViewSpacing
             table.leading == view.leading
             table.trailing == view.trailing
             table.bottom == view.bottom
@@ -158,6 +162,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ReminderTableViewCell else { return UITableViewCell()}
             
             cell.configure(reminder: reminders[indexPath.row])
+            cell.backgroundColor = Asset.ColorAssets.background.color
             
             return cell
         }
@@ -184,5 +189,28 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //        }
 //
 //        self.present(recordViewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let identifier = String(describing: HomeHeaderSectionView.self)
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier) as? HomeHeaderSectionView else {
+            return nil
+        }
+        
+        let type: HomeHeaderSectionType = section == 0 ? .reminders : .records
+        view.configure(type: type, delegate: self)
+        
+        return view
+    }
+}
+
+extension HomeViewController: HomeHeaderSectionDelegate {
+    func didTouchInButton(type: HomeHeaderSectionType) {
+        switch type {
+        case .records:
+            interactor.didTouchQuickAccess(type: .history)
+        case .reminders:
+            interactor.didTouchQuickAccess(type: .reminders)
+        }
     }
 }

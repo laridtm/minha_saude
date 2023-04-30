@@ -1,7 +1,7 @@
 import Moya
 
 protocol RemindersWorkerLogic {
-    func fetchReminders(id: String, completion: @escaping(Result<[Reminder], Error>) -> Void)
+    func fetchReminders(id: String, size: Int?, completion: @escaping(Result<[Reminder], Error>) -> Void)
     func saveReminder(userId: String, reminder: Reminder, completion: @escaping (Result<Bool, Error>) -> Void)
     func editReminder(userId: String, reminder: Reminder, completion: @escaping (Result<Bool, Error>) -> Void)
     func deleteReminder(id: String, completion: @escaping (Result<Bool, Error>) -> Void)
@@ -10,10 +10,10 @@ protocol RemindersWorkerLogic {
 public final class RemindersWorker: RemindersWorkerLogic {
     init() { }
     
-    func fetchReminders(id: String, completion: @escaping(Result<[Reminder], Error>) -> Void) {
+    func fetchReminders(id: String, size: Int?, completion: @escaping(Result<[Reminder], Error>) -> Void) {
         let provider = MoyaProvider<RemindersRequest>()
         
-        provider.request(.fetchReminders(id: id)) { result in
+        provider.request(.fetchReminders(id: id, size: size)) { result in
             switch result {
             case .success(let response):
                 do {

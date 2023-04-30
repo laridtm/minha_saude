@@ -1,7 +1,7 @@
 import Moya
 
 enum RemindersRequest {
-    case fetchReminders(id: String)
+    case fetchReminders(id: String, size: Int?)
     case create(userId: String, reminder: Reminder)
     case edit(userId: String, reminder: Reminder)
     case delete(id: String)
@@ -14,7 +14,7 @@ extension RemindersRequest: TargetType {
     
     var path: String {
         switch self {
-        case .fetchReminders(let id):
+        case .fetchReminders(let id, _):
             return "/reminders/\(id)"
         case .create(let userId, _):
             return "/reminders/\(userId)"
@@ -40,7 +40,10 @@ extension RemindersRequest: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .fetchReminders:
+        case .fetchReminders(_, let size):
+            if let filterSize = size {
+                return .requestParameters(parameters: ["size": filterSize], encoding: URLEncoding.default)
+            }
             return .requestPlain
         case .create(_, let reminder):
             return .requestJSONEncodable(reminder)
