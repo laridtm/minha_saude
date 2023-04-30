@@ -12,6 +12,8 @@ class InitialViewController: UIViewController {
         static let centerSpacing: CGFloat = 10
     }
     
+    private let interactor: InitialBusinessLogic
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -49,6 +51,14 @@ class InitialViewController: UIViewController {
         button.addTarget(self, action: #selector(enterApp), for: .touchUpInside)
         return button
     }()
+    
+    public init(interactor: InitialBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +68,8 @@ class InitialViewController: UIViewController {
     }
 
     @objc private func enterApp() {
-        let homeViewController = HomeConfigurator().resolve()
-        navigationController?.pushViewController(homeViewController, animated: true)
+        guard let userId = idTextField.text, !userId.isEmpty else { return }
+        interactor.validateUserId(userId: userId)
     }
     
     private func addEnterButton() {

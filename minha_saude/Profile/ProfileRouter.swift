@@ -1,7 +1,7 @@
 import UIKit
 
 public protocol ProfileRoutingLogic {
-    func routeToHome()
+    func routeToHome(userId: String)
 }
 
 public final class ProfileRouter: ProfileRoutingLogic {
@@ -10,8 +10,8 @@ public final class ProfileRouter: ProfileRoutingLogic {
     
     public init() {}
     
-    public func routeToHome() {
-        let profileViewController = HomeConfigurator().resolve()
-        viewController?.navigationController?.pushViewController(profileViewController, animated: true)
+    public func routeToHome(userId: String) {
+        let homeViewController = HomeConfigurator().resolve(userId: userId)
+        viewController?.navigationController?.pushViewController(homeViewController, animated: true)
     }
 }

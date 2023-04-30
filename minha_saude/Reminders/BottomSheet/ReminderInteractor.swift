@@ -7,10 +7,12 @@ protocol ReminderBusinessLogic {
 }
 
 public final class ReminderInteractor: ReminderBusinessLogic {
+    private let userId: String
     private let worker: RemindersWorkerLogic
     private let presenter: ReminderPresentationLogic
     
-    init(worker: RemindersWorkerLogic, presenter: ReminderPresentationLogic) {
+    init(userId: String, worker: RemindersWorkerLogic, presenter: ReminderPresentationLogic) {
+        self.userId = userId
         self.worker = worker
         self.presenter = presenter
     }
@@ -22,7 +24,7 @@ public final class ReminderInteractor: ReminderBusinessLogic {
         
         let newReminder: Reminder = .init(name: name ?? "", time: dateFormatted, type: type)
         
-        worker.saveReminder(userId: "00897314921", reminder: newReminder) { result in
+        worker.saveReminder(userId: userId, reminder: newReminder) { result in
             switch result {
             case .success:
                 self.presenter.createdReminder()
@@ -40,7 +42,7 @@ public final class ReminderInteractor: ReminderBusinessLogic {
         
         let editedReminder: Reminder = .init(id: id, name: name ?? "", time: dateFormatted, type: type)
         
-        worker.editReminder(userId: "00897314921", reminder: editedReminder) { result in
+        worker.editReminder(userId: userId, reminder: editedReminder) { result in
             switch result {
             case .success:
                 self.presenter.editReminder()

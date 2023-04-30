@@ -71,15 +71,7 @@ class RemindersViewController: UIViewController {
     }
     
     @objc func addReminder() {
-        //TODO: Passar essa logica para intercator -> router
-        let reminderViewController = ReminderConfigurator().resolve(delegate: self, type: .new)
-        
-        if let sheet = reminderViewController.sheetPresentationController {
-                sheet.detents = [.medium()]
-                sheet.largestUndimmedDetentIdentifier = .medium
-            }
-        
-        self.present(reminderViewController, animated: true)
+        interactor.openReminder(delegate: self, type: .new, reminder: nil)
     }
 }
 
@@ -102,19 +94,7 @@ extension RemindersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Passar essa logica para intercator -> router
-        let reminderViewController = ReminderConfigurator().resolve(
-            delegate: self,
-            type: .edit,
-            reminder: reminders[indexPath.row]
-        )
-        
-        if let sheet = reminderViewController.sheetPresentationController {
-                sheet.detents = [.medium()]
-                sheet.largestUndimmedDetentIdentifier = .medium
-            }
-        
-        self.present(reminderViewController, animated: true)
+        interactor.openReminder(delegate: self, type: .edit, reminder: reminders[indexPath.row])
     }
 }
 

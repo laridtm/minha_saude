@@ -99,15 +99,7 @@ class MedicalHistoryViewController: UIViewController {
     }
     
     @objc func addRecord() {
-        //TODO: Passar essa logica para intercator -> router
-        let recordViewController = MedicalRecordConfigurator().resolve(delegate: self, type: .new)
-
-        if let sheet = recordViewController.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.largestUndimmedDetentIdentifier = .medium
-        }
-
-        self.present(recordViewController, animated: true)
+        interactor.openMedicalRecord(delegate: self, type: .new, record: nil)
     }
 }
 
@@ -130,15 +122,7 @@ extension MedicalHistoryViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Passar essa logica para intercator -> route
-        let recordViewController = MedicalRecordConfigurator().resolve(delegate: self, type: .edit, record: records[indexPath.row])
-
-        if let sheet = recordViewController.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.largestUndimmedDetentIdentifier = .medium
-        }
-
-        self.present(recordViewController, animated: true)
+        interactor.openMedicalRecord(delegate: self, type: .edit, record: records[indexPath.row])
     }
 }
 

@@ -24,10 +24,12 @@ protocol MedicalRecordBusinessLogic {
 }
 
 public final class MedicalRecordInteractor: MedicalRecordBusinessLogic {
+    private let userId: String
     private let worker: MedicalHistoryWorkerLogic
     private let presenter: MedicalRecordPresentationLogic
     
-    init(worker: MedicalHistoryWorkerLogic, presenter: MedicalRecordPresentationLogic) {
+    init(userId: String, worker: MedicalHistoryWorkerLogic, presenter: MedicalRecordPresentationLogic) {
+        self.userId = userId
         self.worker = worker
         self.presenter = presenter
     }
@@ -53,7 +55,7 @@ public final class MedicalRecordInteractor: MedicalRecordBusinessLogic {
             type: type
         )
 
-        worker.saveRecord(userId: "00897314921", record: newRecord) { result in
+        worker.saveRecord(userId: userId, record: newRecord) { result in
             switch result {
             case .success:
                 self.presenter.createdRecord()
@@ -87,7 +89,7 @@ public final class MedicalRecordInteractor: MedicalRecordBusinessLogic {
             type: type
         )
 
-        worker.editRecord(userId: "00897314921", record: editedRecord) { result in
+        worker.editRecord(userId: userId, record: editedRecord) { result in
             switch result {
             case .success:
                 self.presenter.editRecord()

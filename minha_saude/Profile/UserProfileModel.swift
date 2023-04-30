@@ -33,6 +33,19 @@ public struct UserProfile: Decodable {
         self.emergencyPhone = emergencyPhone
         self.allergies = allergies
     }
+    
+    init(cpf: String) {
+        self.fullName = ""
+        self.gender = "Masculino"
+        self.birthDate = ""
+        self.cpf = cpf
+        self.phoneNumber = ""
+        self.address = ""
+        self.maritalStatus = ""
+        self.bloodType = ""
+        self.emergencyPhone = ""
+        self.allergies = ""
+    }
 }
 
 extension UserProfile: Encodable {

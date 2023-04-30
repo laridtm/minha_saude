@@ -1,12 +1,17 @@
 protocol RemindersBusinessLogic {
     func viewDidLoad()
+    func openReminder(delegate: ReminderDisplayDelegate, type: ReminderViewControllerType, reminder: Reminder?)
 }
 
 public final class RemindersInteractor: RemindersBusinessLogic {
+    private let userId: String
+    private let router: RemindersRoutingLogic
     private let worker: RemindersWorkerLogic
     private let presenter: RemindersPresentationLogic
     
-    init(worker: RemindersWorkerLogic, presenter: RemindersPresentationLogic) {
+    init(userId: String, router: RemindersRoutingLogic, worker: RemindersWorkerLogic, presenter: RemindersPresentationLogic) {
+        self.userId = userId
+        self.router = router
         self.worker = worker
         self.presenter = presenter
     }
@@ -16,7 +21,7 @@ public final class RemindersInteractor: RemindersBusinessLogic {
     }
     
     private func loadReminders() {
-        worker.fetchReminders(id: "00897314921", size: nil) { result in
+        worker.fetchReminders(id: userId, size: nil) { result in
             switch result {
             case .success(let reminders):
                 self.presenter.presentReminders(reminders)
@@ -25,5 +30,9 @@ public final class RemindersInteractor: RemindersBusinessLogic {
                 print(error)
             }
         }
+    }
+    
+    func openReminder(delegate: ReminderDisplayDelegate, type: ReminderViewControllerType, reminder: Reminder?) {
+        router.openReminderBottomSheet(userId: userId, type: type, delegate: delegate, reminder: reminder)
     }
 }
