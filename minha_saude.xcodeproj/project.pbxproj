@@ -30,6 +30,10 @@
 		538BCE5329FDA7EE00CBABBA /* MedicalRecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE5229FDA7EE00CBABBA /* MedicalRecordPresenter.swift */; };
 		538BCE5529FDAB0500CBABBA /* MedicalRecordConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE5429FDAB0500CBABBA /* MedicalRecordConfigurator.swift */; };
 		538BCE5729FEAAAB00CBABBA /* HomeHeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE5629FEAAAB00CBABBA /* HomeHeaderSectionView.swift */; };
+		538BCE5929FED0D200CBABBA /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE5829FED0D200CBABBA /* ProfileWorker.swift */; };
+		538BCE5B29FED17200CBABBA /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE5A29FED17200CBABBA /* ProfilePresenter.swift */; };
+		538BCE5E29FED45D00CBABBA /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE5D29FED45D00CBABBA /* ProfileRequest.swift */; };
+		538BCE6029FEDA4800CBABBA /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538BCE5F29FEDA4700CBABBA /* ProfileRouter.swift */; };
 		53BCB43B29DE1F9700B9A270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */; };
 		53BCB43D29DE1F9700B9A270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */; };
 		53BCB43F29DE1F9700B9A270 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB43E29DE1F9700B9A270 /* InitialViewController.swift */; };
@@ -105,6 +109,10 @@
 		538BCE5229FDA7EE00CBABBA /* MedicalRecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordPresenter.swift; sourceTree = "<group>"; };
 		538BCE5429FDAB0500CBABBA /* MedicalRecordConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordConfigurator.swift; sourceTree = "<group>"; };
 		538BCE5629FEAAAB00CBABBA /* HomeHeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderSectionView.swift; sourceTree = "<group>"; };
+		538BCE5829FED0D200CBABBA /* ProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorker.swift; sourceTree = "<group>"; };
+		538BCE5A29FED17200CBABBA /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		538BCE5D29FED45D00CBABBA /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		538BCE5F29FEDA4700CBABBA /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		53BCB43729DE1F9700B9A270 /* minha_saude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minha_saude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCB43A29DE1F9700B9A270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53BCB43C29DE1F9700B9A270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +243,14 @@
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
+		538BCE5C29FED44C00CBABBA /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				538BCE5D29FED45D00CBABBA /* ProfileRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		53BCB42E29DE1F9700B9A270 = {
 			isa = PBXGroup;
 			children = (
@@ -352,10 +368,14 @@
 		53D8AC2C29E608E5008138A9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				538BCE5C29FED44C00CBABBA /* Request */,
 				53D8AC2F29E61D83008138A9 /* UserProfileModel.swift */,
 				53D8AC3329E621CE008138A9 /* ProfileConfigurator.swift */,
 				53D8AC2D29E608F8008138A9 /* ProfileViewController.swift */,
 				53D8AC3129E620FC008138A9 /* ProfileInteractor.swift */,
+				538BCE5829FED0D200CBABBA /* ProfileWorker.swift */,
+				538BCE5A29FED17200CBABBA /* ProfilePresenter.swift */,
+				538BCE5F29FEDA4700CBABBA /* ProfileRouter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -561,6 +581,7 @@
 				53C686E329E1B67F004D4EE0 /* Assets.swift in Sources */,
 				538BCE4F29FD91AE00CBABBA /* MedicalRecordViewController.swift in Sources */,
 				53114D4C29F2F84700778D46 /* ReminderView.swift in Sources */,
+				538BCE5B29FED17200CBABBA /* ProfilePresenter.swift in Sources */,
 				53D2CB8B29EDEE8C00A896D6 /* MedicalRecordCell.swift in Sources */,
 				53114D4029F2EB9100778D46 /* RemindersInteractor.swift in Sources */,
 				53BCB47129DE2DA500B9A270 /* QuickAccessView.swift in Sources */,
@@ -577,10 +598,12 @@
 				53114D4429F2EBAE00778D46 /* RemindersWorker.swift in Sources */,
 				53D98D9729EB03F4005AB726 /* HomePresenter.swift in Sources */,
 				53C686E729E1C1F9004D4EE0 /* HomeConfigurator.swift in Sources */,
+				538BCE5E29FED45D00CBABBA /* ProfileRequest.swift in Sources */,
 				53788BE429EF581B0091C01B /* MedicalHistoryRequest.swift in Sources */,
 				538BCE5329FDA7EE00CBABBA /* MedicalRecordPresenter.swift in Sources */,
 				53D2CB9229EE0F3000A896D6 /* ReminderCell.swift in Sources */,
 				53114D5329F3120C00778D46 /* FilterCell.swift in Sources */,
+				538BCE6029FEDA4800CBABBA /* ProfileRouter.swift in Sources */,
 				538BCE5129FD9D5400CBABBA /* MedicalRecordInteractor.swift in Sources */,
 				538BCE4829FD626800CBABBA /* ReminderPresenter.swift in Sources */,
 				53BCB46C29DE2AB600B9A270 /* HomeViewController.swift in Sources */,
@@ -591,6 +614,7 @@
 				53D98D9C29EB0D54005AB726 /* UserInfoRequest.swift in Sources */,
 				53D2CB9629EE141700A896D6 /* RemindersViewController.swift in Sources */,
 				53114D4F29F2FBD800778D46 /* FilterView.swift in Sources */,
+				538BCE5929FED0D200CBABBA /* ProfileWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -179,18 +179,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Passar essa logica para intercator -> route
-//        let recordViewController = MedicalRecordConfigurator().resolve(delegate: self, type: .edit, record: records[indexPath.row])
-//
-//        if let sheet = recordViewController.sheetPresentationController {
-//            sheet.detents = [.medium()]
-//            sheet.largestUndimmedDetentIdentifier = .medium
-//        }
-//
-//        self.present(recordViewController, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let identifier = String(describing: HomeHeaderSectionView.self)
         guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier) as? HomeHeaderSectionView else {

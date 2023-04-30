@@ -1,6 +1,10 @@
 import Cartography
 import UIKit
 
+public protocol ProfileDisplayLogic: AnyObject {
+    func displayProfile(profile: UserProfile)
+}
+
 class ProfileViewController: UIViewController {
     
     struct Constants {
@@ -9,6 +13,7 @@ class ProfileViewController: UIViewController {
         static let largeSpacing: CGFloat = 28
     }
     
+    private var currentProfile: UserProfile?
     private let interactor: ProfileBusinessLogic
     private let segments = ["Masculino", "Feminino"]
     
@@ -144,6 +149,8 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = Asset.ColorAssets.background.color
         setupConstraints()
         setupBackButton()
+        
+        interactor.viewDidLoad()
     }
 
     @objc private func saveProfile() {
@@ -152,7 +159,7 @@ class ProfileViewController: UIViewController {
             gender: segments[genderSegmentedControl.selectedSegmentIndex],
             birthDate: birthDateTextField.text ?? "",
             cpf: cpfTextField.text ?? "",
-            telephone: telephoneTextField.text ?? "",
+            phoneNumber: telephoneTextField.text ?? "",
             address: addressTextField.text ?? "",
             maritalStatus: maritalStatusTextField.text ?? "",
             bloodType: bloodTypeTextField.text ?? "",
@@ -193,5 +200,25 @@ class ProfileViewController: UIViewController {
             button.trailing == view.trailing - Constants.spacing
             button.top == stack.bottom + Constants.largeSpacing
         }
+    }
+}
+
+extension ProfileViewController: ProfileDisplayLogic {
+    func displayProfile(profile: UserProfile) {
+        currentProfile = profile
+        
+        fullNameTextField.text = profile.fullName
+        genderSegmentedControl.selectedSegmentIndex = segments.firstIndex(of: profile.gender) ?? 0
+        birthDateTextField.text = profile.birthDate
+        cpfTextField.text = profile.cpf
+        telephoneTextField.text = profile.phoneNumber
+        addressTextField.text = profile.address
+        maritalStatusTextField.text = profile.maritalStatus
+        bloodTypeTextField.text = profile.bloodType
+        emergencyPhoneTextField.text = profile.emergencyPhone
+        allergiesTextField.text = profile.allergies
+        
+        cpfTextField.isEnabled = false
+        cpfTextField.isUserInteractionEnabled = false
     }
 }
