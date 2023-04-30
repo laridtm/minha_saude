@@ -12,9 +12,10 @@ public final class FilterView: UIView {
         static let cornerRadius: CGFloat = 6
         static let minimumInteritemSpacing: CGFloat = 5
         static let itemHeight: CGFloat = 25
-        static let viewHeight: CGFloat = 50
+        static let viewHeight: CGFloat = 60
         static let widthSpacing: CGFloat = 8
-        static let bottomSpacing: CGFloat = 1
+        static let collectionHeight: CGFloat = 30
+        static let defaultCollectionItemWidth: CGFloat = 50
     }
     
     private let filterTitle: String
@@ -33,8 +34,8 @@ public final class FilterView: UIView {
     private let flowLayout: UICollectionViewFlowLayout = {
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .horizontal
-        flow.minimumLineSpacing = 0
-        flow.minimumInteritemSpacing = Constants.minimumInteritemSpacing
+        flow.minimumInteritemSpacing = 0
+        flow.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         return flow
     }()
     
@@ -48,8 +49,6 @@ public final class FilterView: UIView {
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
         collection.autoresizingMask = .flexibleWidth
-        //        collection.delegate = self
-        //        collection.dataSource = self
         return collection
     }()
     
@@ -96,7 +95,7 @@ public final class FilterView: UIView {
             collection.leading == view.leading
             collection.trailing == view.trailing
             collection.top == label.bottom + Constants.minimumInteritemSpacing
-            collection.bottom == view.bottom + Constants.bottomSpacing
+            collection.height == Constants.collectionHeight
         }
     }
     
@@ -123,9 +122,11 @@ extension FilterView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let text = filters[indexPath.row]
-        let width = widthOfString(text: text, usingFont: UIFont.systemFont(ofSize: Constants.filterNameFontSize)) + Constants.widthSpacing
-        return CGSize(width: width, height: Constants.itemHeight)
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        let size = cell?.contentView.systemLayoutSizeFitting(CGSize(width: 0, height: Constants.itemHeight), withHorizontalFittingPriority: .defaultHigh, verticalFittingPriority: .fittingSizeLevel)
+        
+        return CGSize(width: size?.width ?? Constants.defaultCollectionItemWidth, height: Constants.itemHeight)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

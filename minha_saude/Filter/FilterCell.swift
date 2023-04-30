@@ -7,7 +7,7 @@ public final class FilterCollectionViewCell: UICollectionViewCell {
         static let filterFontSize: CGFloat = 12
         static let cornerRadius: CGFloat = 4
         static let borderWidth: CGFloat = 1
-        static let labelSpacing: CGFloat = 4
+        static let labelSpacing: CGFloat = 2
     }
     
     public override var isSelected: Bool {
@@ -24,6 +24,11 @@ public final class FilterCollectionViewCell: UICollectionViewCell {
         label.textColor = Asset.ColorAssets.lightGray.color
         label.font = UIFont.systemFont(ofSize: Constants.filterFontSize)
         return label
+    }()
+    
+    private lazy var containerView : UIView = {
+        let view = UIView()
+        return view
     }()
     
     public override init(frame: CGRect) {
@@ -43,20 +48,29 @@ public final class FilterCollectionViewCell: UICollectionViewCell {
         
         backgroundColor = .white
         
-        addSubview(filterLabel)
+        contentView.addSubview(containerView)
+        containerView.addSubview(filterLabel)
         
         setupConstraints()
     }
     
     private func setupConstraints() {
-        constrain(self, filterLabel) { cell, label in
-            label.leading == cell.leading + Constants.labelSpacing
-            label.trailing == cell.trailing - Constants.labelSpacing
-            label.centerY == cell.centerY
+        constrain(contentView, containerView, filterLabel) { cell, container, label in
+            container.centerY == cell.centerY
+            container.leading == cell.leading
+            container.trailing == cell.trailing
+            
+            label.leading == container.leading + Constants.labelSpacing
+            label.trailing == container.trailing - Constants.labelSpacing
+            label.top == container.top + Constants.labelSpacing
+            label.bottom == container.bottom - Constants.labelSpacing
         }
     }
     
     func configure(text: String) {
         filterLabel.text = text
+        
+        filterLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        filterLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 }
