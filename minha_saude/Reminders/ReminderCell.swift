@@ -7,6 +7,10 @@ public final class ReminderTableViewCell: UITableViewCell {
         static let timeLabelSize: CGFloat = 32
         static let reminderNameLabelSize: CGFloat = 20
         static let repetitionLabelSize: CGFloat = 16
+        static let minSpacing: CGFloat = 4
+        static let defaultSpacing: CGFloat = 17
+        static let middleSpacing: CGFloat = 20
+        static let maxSpacing: CGFloat = 30
     }
     
     private let timeLabel: UILabel = {
@@ -57,15 +61,15 @@ public final class ReminderTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         constrain(timeLabel, reminderNameLabel, repetitionLabel, contentView) { time, name, repetition, cell in
-            time.leading == cell.leading + 30
-            time.top == cell.top + 20
-            time.bottom == cell.bottom - 20
+            time.leading == cell.leading + Constants.maxSpacing
+            time.top == cell.top + Constants.middleSpacing
+            time.bottom == cell.bottom - Constants.middleSpacing
             
-            name.leading == time.trailing + 17
-            name.top == cell.top + 17
+            name.leading == time.trailing + Constants.defaultSpacing
+            name.top == cell.top + Constants.defaultSpacing
             
-            repetition.leading == time.trailing + 17
-            repetition.top == name.bottom - 4
+            repetition.leading == time.trailing + Constants.defaultSpacing
+            repetition.top == name.bottom - Constants.minSpacing
         }
     }
     

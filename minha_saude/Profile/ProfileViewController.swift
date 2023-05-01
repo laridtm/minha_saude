@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .equalCentering
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.spacing = 28
+        stackView.spacing = Constants.largeSpacing
         return stackView
     }()
     

@@ -20,9 +20,10 @@ public final class MedicalRecordView: UIView {
         static let recordFontSize: CGFloat = 20
         static let cornerRadius: CGFloat = 6
         static let minSpacing: CGFloat = 10
-        static let maxSpacing: CGFloat = 45
-        static let borderSpacing: CGFloat = 25
-        static let middleSpacing: CGFloat = 20
+        static let middleSpacing: CGFloat = 12
+        static let defaultSpacing: CGFloat = 16
+        static let dateSpacing: CGFloat = 5
+        static let observationHeight: CGFloat = 50
     }
     
     private var selectedRecordType: MedicalRecordType = .appointment {
@@ -168,12 +169,12 @@ public final class MedicalRecordView: UIView {
     private func setupConstraints() {
         
         constrain(self, recordLabel, filters) { view, record, filters in
-            record.top == view.top + 16
+            record.top == view.top + Constants.defaultSpacing
             record.centerX == view.centerX
             
-            filters.top == record.bottom + 12
-            filters.leading == view.leading + 16
-            filters.trailing == view.trailing - 16
+            filters.top == record.bottom + Constants.middleSpacing
+            filters.leading == view.leading + Constants.defaultSpacing
+            filters.trailing == view.trailing - Constants.defaultSpacing
         }
         
         constrain(
@@ -186,36 +187,36 @@ public final class MedicalRecordView: UIView {
             observationTextField,
             filters
         ) { view, date, time, place, professional, speciallity, obs, filters in
-            date.top == filters.bottom + 12
-            date.leading == view.leading + 16
-            date.trailing == view.centerX - 5
+            date.top == filters.bottom + Constants.middleSpacing
+            date.leading == view.leading + Constants.defaultSpacing
+            date.trailing == view.centerX - Constants.dateSpacing
             
-            time.top == filters.bottom + 12
-            time.leading == view.centerX + 5
-            time.trailing == view.trailing - 16
+            time.top == filters.bottom + Constants.middleSpacing
+            time.leading == view.centerX + Constants.dateSpacing
+            time.trailing == view.trailing - Constants.defaultSpacing
             
-            place.top == date.bottom + 12
-            place.leading == view.leading + 16
-            place.trailing == view.trailing - 16
+            place.top == date.bottom + Constants.middleSpacing
+            place.leading == view.leading + Constants.defaultSpacing
+            place.trailing == view.trailing - Constants.defaultSpacing
             
-            professional.top == place.bottom + 12
-            professional.leading == view.leading + 16
-            professional.trailing == view.trailing - 16
+            professional.top == place.bottom + Constants.middleSpacing
+            professional.leading == view.leading + Constants.defaultSpacing
+            professional.trailing == view.trailing - Constants.defaultSpacing
             
-            speciallity.top == professional.bottom + 12
-            speciallity.leading == view.leading + 16
-            speciallity.trailing == view.trailing - 16
+            speciallity.top == professional.bottom + Constants.middleSpacing
+            speciallity.leading == view.leading + Constants.defaultSpacing
+            speciallity.trailing == view.trailing - Constants.defaultSpacing
             
-            obs.top == speciallity.bottom + 12
-            obs.leading == view.leading + 16
-            obs.trailing == view.trailing - 16
-            obs.height == 50
+            obs.top == speciallity.bottom + Constants.middleSpacing
+            obs.leading == view.leading + Constants.defaultSpacing
+            obs.trailing == view.trailing - Constants.defaultSpacing
+            obs.height == Constants.observationHeight
         }
         
         constrain(self, saveButton, deleteButton, observationTextField) { view, save, delete, obs in
-            save.top == obs.bottom + 12
-            save.leading == view.leading + 16
-            save.trailing == view.trailing - 16
+            save.top == obs.bottom + Constants.middleSpacing
+            save.leading == view.leading + Constants.defaultSpacing
+            save.trailing == view.trailing - Constants.defaultSpacing
             
             delete.top == save.bottom + Constants.minSpacing
             delete.centerX == view.centerX

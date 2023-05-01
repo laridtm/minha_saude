@@ -15,6 +15,7 @@ public class HomeHeaderSectionView: UITableViewHeaderFooterView {
         static let labelFontSize: CGFloat = 14
         static let buttonFontSize: CGFloat = 12
         static let viewHeight: CGFloat = 28
+        static let spacing: CGFloat = 16
     }
     
     private var type: HomeHeaderSectionType?
@@ -58,10 +59,10 @@ public class HomeHeaderSectionView: UITableViewHeaderFooterView {
             view.height == Constants.viewHeight
             view.width == UIScreen.main.bounds.width
             title.centerY == view.centerY
-            title.leading == view.leading + 16
+            title.leading == view.leading + Constants.spacing
             
             button.centerY == view.centerY
-            button.trailing == view.trailing - 16
+            button.trailing == view.trailing - Constants.spacing
         }
     }
     
