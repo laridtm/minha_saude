@@ -29,8 +29,7 @@ public final class ReminderInteractor: ReminderBusinessLogic {
             case .success:
                 self.presenter.createdReminder()
             case.failure(let error):
-                print(error)
-                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu criar o reminder
+                self.presenter.presentError("Não foi possível criar o lembrete")
             }
         }
     }
@@ -47,8 +46,7 @@ public final class ReminderInteractor: ReminderBusinessLogic {
             case .success:
                 self.presenter.editReminder()
             case.failure(let error):
-                print(error)
-                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu editar o reminder
+                self.presenter.presentError("Não foi possível editar o lembrete")
             }
         }
     }
@@ -59,8 +57,7 @@ public final class ReminderInteractor: ReminderBusinessLogic {
             case .success:
                 self.presenter.deleteReminder()
             case.failure(let error):
-                print(error)
-                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu deletar o reminder
+                self.presenter.presentError("Não foi possível deletar o lembrete")
             }
         }
     }

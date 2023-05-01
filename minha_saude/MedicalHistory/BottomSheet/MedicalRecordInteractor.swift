@@ -59,9 +59,8 @@ public final class MedicalRecordInteractor: MedicalRecordBusinessLogic {
             switch result {
             case .success:
                 self.presenter.createdRecord()
-            case.failure(let error):
-                print(error)
-                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu editar o reminder
+            case.failure:
+                self.presenter.presentError("Não foi possível criar o lembrete")
             }
         }
     }
@@ -93,9 +92,8 @@ public final class MedicalRecordInteractor: MedicalRecordBusinessLogic {
             switch result {
             case .success:
                 self.presenter.editRecord()
-            case.failure(let error):
-                print(error)
-                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu editar o reminder
+            case.failure:
+                self.presenter.presentError("Não foi possível editar o lembrete")
             }
         }
     }
@@ -105,9 +103,8 @@ public final class MedicalRecordInteractor: MedicalRecordBusinessLogic {
             switch result {
             case .success:
                 self.presenter.deleteRecord()
-            case.failure(let error):
-                print(error)
-                //TODO: enviar pra presenter pra mostrar feedback que nao conseguiu deletar o reminder
+            case.failure:
+                self.presenter.presentError("Não foi possível deletar o lembrete")
             }
         }
     }

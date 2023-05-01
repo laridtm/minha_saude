@@ -1,7 +1,7 @@
 import Cartography
 import UIKit
 
-protocol MedicalHistoryDisplayLogic: AnyObject {
+protocol MedicalHistoryDisplayLogic: UIViewController {
     func displayMedicalHistory(_ history: [MedicalRecord])
 }
 

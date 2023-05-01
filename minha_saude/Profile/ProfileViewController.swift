@@ -1,7 +1,7 @@
 import Cartography
 import UIKit
 
-public protocol ProfileDisplayLogic: AnyObject {
+public protocol ProfileDisplayLogic: UIViewController {
     func displayProfile(profile: UserProfile)
 }
 

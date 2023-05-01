@@ -25,9 +25,8 @@ public final class RemindersInteractor: RemindersBusinessLogic {
             switch result {
             case .success(let reminders):
                 self.presenter.presentReminders(reminders)
-            case .failure(let error):
-                //TODO: Enviar um feedback de error para a home view controller
-                print(error)
+            case .failure:
+                self.presenter.presentError()
             }
         }
     }

@@ -34,8 +34,7 @@ public final class ProfileInteractor: ProfileBusinessLogic {
                     self.presenter.presentUserProfile(profile: .init(cpf: self.userId))
                     return
                 }
-                
-                //TODO: Tratar o caso de erro
+                self.presenter.presentError("Não foi possível carregar o perfil do usuário")
                 print("Error: \(error)")
             }
         }
@@ -51,7 +50,7 @@ public final class ProfileInteractor: ProfileBusinessLogic {
             case .success:
                 self.router.routeToHome(userId: self.userId)
             case .failure(let error):
-                //TODO: Tratar o caso de erro
+                self.presenter.presentError("Não foi possível salvar o perfil do usuário")
                 print("Error: \(error)")
             }
         }

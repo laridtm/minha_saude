@@ -1,7 +1,7 @@
 import Cartography
 import UIKit
 
-protocol RemindersDisplayLogic: AnyObject {
+protocol RemindersDisplayLogic: UIViewController {
     func displayReminders(_ reminders: [Reminder])
 }
 

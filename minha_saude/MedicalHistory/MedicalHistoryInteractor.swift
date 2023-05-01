@@ -30,9 +30,8 @@ public final class MedicalHistoryInteractor: MedicalHistoryBusinessLogic {
             switch result {
             case .success(let history):
                 self.presenter.presentMedicalHistory(history)
-            case .failure(let error):
-                //TODO: Enviar um feedback de error para a home view controller
-                print(error)
+            case .failure:
+                self.presenter.presentError()
             }
         }
     }

@@ -10,7 +10,7 @@ public protocol ReminderDisplayDelegate: AnyObject {
     func viewWillDismiss()
 }
                                         
-protocol ReminderDisplayLogic: AnyObject {
+protocol ReminderDisplayLogic: UIViewController {
     func dismissBottomSheet()
 }
 

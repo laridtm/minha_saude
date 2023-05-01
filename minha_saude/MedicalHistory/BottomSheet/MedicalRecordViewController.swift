@@ -10,7 +10,7 @@ public protocol MedicalRecordDisplayDelegate: AnyObject {
     func viewWillDismiss()
 }
                                         
-protocol MedicalRecordDisplayLogic: AnyObject {
+protocol MedicalRecordDisplayLogic: UIViewController {
     func dismissBottomSheet()
 }
 

@@ -1,7 +1,7 @@
 import Cartography
 import UIKit
 
-protocol HomeDisplayLogic: AnyObject {
+protocol HomeDisplayLogic: UIViewController {
     func displayUserInfo(info: UserInfo)
     func displayRecords(_ records: [MedicalRecord])
     func displayReminders(_ reminders: [Reminder])
@@ -67,6 +67,10 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = Asset.ColorAssets.background.color
         configure()
+        interactor.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         interactor.viewDidLoad()
     }
     

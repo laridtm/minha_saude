@@ -23,7 +23,6 @@ public class PdfRender: PdfRederingLogic {
                 let pdfData = self.buildPDF(records: records)
                 self.sharePDF(data: pdfData)
             case .failure(let error):
-                //TODO: Handle error
                 print(error)
             }
         }

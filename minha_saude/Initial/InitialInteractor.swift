@@ -7,13 +7,16 @@ protocol InitialBusinessLogic {
 public final class InitialInteractor: InitialBusinessLogic {
     private let profileWorker: ProfileWorkerLogic
     private let router: InitialRoutingLogic
+    private let presenter: InitialPresentationLogic
     
-    public init(
+    init(
         profileWorker: ProfileWorkerLogic,
-        router: InitialRoutingLogic
+        router: InitialRoutingLogic,
+        presenter: InitialPresentationLogic
     ) {
         self.profileWorker = profileWorker
         self.router = router
+        self.presenter = presenter
     }
     
     func validateUserId(userId: String) {
@@ -27,7 +30,7 @@ public final class InitialInteractor: InitialBusinessLogic {
                     self.router.routeToUserProfile(userId: userId)
                     return
                 }
-                //TODO: tratar esse caso de erro
+                self.presenter.presentError("Tivemos um problema ao conectar ao servidor")
                 print(error)
             }
         }

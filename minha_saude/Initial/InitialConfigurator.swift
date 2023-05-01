@@ -6,10 +6,12 @@ public class InitialConfigurator {
     public func resolve() -> UIViewController {
         let profileWorker = ProfileWorker()
         let router = InitialRouter()
-        let interactor = InitialInteractor(profileWorker: profileWorker, router: router)
+        let presenter = InitialPresenter()
+        let interactor = InitialInteractor(profileWorker: profileWorker, router: router, presenter: presenter)
         let viewController = InitialViewController(interactor: interactor)
         
         router.viewController = viewController
+        presenter.viewController = viewController
         
         return viewController
     }

@@ -1,7 +1,9 @@
 import Cartography
 import UIKit
 
-class InitialViewController: UIViewController {
+protocol InitialDisplayLogic: UIViewController {}
+
+class InitialViewController: UIViewController, InitialDisplayLogic {
     
     struct Constants {
         static let cornerRadius: CGFloat = 6

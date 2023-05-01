@@ -54,9 +54,8 @@ public final class HomeInteractor: HomeBusinessLogic {
             switch result {
             case .success(let info):
                 self.presenter.presentUserInfo(info: info)
-            case .failure(let error):
-                //TODO: Enviar um feedback de error para a home view controller
-                print(error)
+            case .failure:
+                self.presenter.presentError("Não foi possível carregar as informações do usuário")
             }
         }
     }
@@ -66,9 +65,8 @@ public final class HomeInteractor: HomeBusinessLogic {
             switch result {
             case .success(let reminders):
                 self.presenter.presentReminders(reminders)
-            case .failure(let error):
-                //TODO: Enviar um feedback de error para a home view controller
-                print(error)
+            case .failure:
+                self.presenter.presentError("Não foi possível carregar os lembretes")
             }
         }
     }
@@ -78,9 +76,8 @@ public final class HomeInteractor: HomeBusinessLogic {
             switch result {
             case .success(let records):
                 self.presenter.presentRecords(records)
-            case .failure(let error):
-                //TODO: Enviar um feedback de error para a home view controller
-                print(error)
+            case .failure:
+                self.presenter.presentError("Não foi possível carregar o histórico")
             }
         }
     }
