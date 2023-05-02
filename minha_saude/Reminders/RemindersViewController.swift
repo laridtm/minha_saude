@@ -46,6 +46,9 @@ class RemindersViewController: UIViewController {
         let identifier = String(describing: ReminderTableViewCell.self)
         tableView.register(ReminderTableViewCell.self, forCellReuseIdentifier: identifier)
         
+        let emptyStateIdentifier = String(describing: EmptyStateCell.self)
+        tableView.register(EmptyStateCell.self, forCellReuseIdentifier: emptyStateIdentifier)
+        
         setupBackButton()
         
         view.addSubview(tableView)
@@ -77,10 +80,20 @@ class RemindersViewController: UIViewController {
 
 extension RemindersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        reminders.count
+        return reminders.count > 0 ? reminders.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if reminders.count == 0 {
+            let identifier = String(describing: EmptyStateCell.self)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? EmptyStateCell else { return UITableViewCell()}
+            
+            cell.configure(emptyStateTitle: "Não há registro de lembretes")
+            cell.backgroundColor = Asset.ColorAssets.background.color
+            
+            return cell
+        }
+        
         let identifier = String(describing: ReminderTableViewCell.self)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ReminderTableViewCell else { return UITableViewCell()}
         

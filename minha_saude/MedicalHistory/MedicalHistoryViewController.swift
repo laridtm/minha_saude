@@ -59,6 +59,9 @@ class MedicalHistoryViewController: UIViewController {
         let identifier = String(describing: MedicalRecordTableViewCell.self)
         tableView.register(MedicalRecordTableViewCell.self, forCellReuseIdentifier: identifier)
         
+        let emptyStateIdentifier = String(describing: EmptyStateCell.self)
+        tableView.register(EmptyStateCell.self, forCellReuseIdentifier: emptyStateIdentifier)
+        
         setupBackButton()
         
         view.backgroundColor = Asset.ColorAssets.background.color
@@ -119,10 +122,20 @@ class MedicalHistoryViewController: UIViewController {
 
 extension MedicalHistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        records.count
+        return records.count > 0 ? records.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if records.count == 0 {
+            let identifier = String(describing: EmptyStateCell.self)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? EmptyStateCell else { return UITableViewCell()}
+            
+            cell.configure(emptyStateTitle: "Não há registro de histórico médico")
+            cell.backgroundColor = Asset.ColorAssets.background.color
+            
+            return cell
+        }
+        
         let identifier = String(describing: MedicalRecordTableViewCell.self)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MedicalRecordTableViewCell else { return UITableViewCell()}
         

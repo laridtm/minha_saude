@@ -91,6 +91,9 @@ class HomeViewController: UIViewController {
         let recordIdentifier = String(describing: MedicalRecordTableViewCell.self)
         tableView.register(MedicalRecordTableViewCell.self, forCellReuseIdentifier: recordIdentifier)
         
+        let emptyStateIdentifier = String(describing: EmptyStateCell.self)
+        tableView.register(EmptyStateCell.self, forCellReuseIdentifier: emptyStateIdentifier)
+        
         setupStackView()
         setupConstraints()
     }
@@ -126,6 +129,16 @@ class HomeViewController: UIViewController {
             table.bottom == view.bottom
         }
     }
+    
+    private func createEmptyState(for index: IndexPath) -> UITableViewCell {
+        let identifier = String(describing: EmptyStateCell.self)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: index) as? EmptyStateCell else { return UITableViewCell()}
+        
+        cell.configure(emptyStateTitle: index.section == 0 ? "Não há registro de lembretes" : "Não há registro de histórico médico")
+        cell.backgroundColor = Asset.ColorAssets.background.color
+        
+        return cell
+    }
 }
 
 extension HomeViewController: HomeDisplayLogic {
@@ -157,10 +170,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? reminders.count : records.count
+        let count = section == 0 ? reminders.count : records.count
+        
+        return count > 0 ? count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let count = indexPath.section == 0 ? reminders.count : records.count
+        
+        guard count > 0 else { return createEmptyState(for: indexPath) }
+        
         if indexPath.section == 0 {
             let identifier = String(describing: ReminderTableViewCell.self)
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ReminderTableViewCell else { return UITableViewCell()}
