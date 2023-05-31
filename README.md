@@ -7,6 +7,8 @@ Trata-se de um aplicativo de gerenciamento de saúde pessoal para o Trabalho de 
 
 Backend escrito em Go para o projeto neste [link]([https://github.com/laridtm/minha_saude](https://github.com/laridtm/minha_saude_backend/tree/main)
 
+Para rodar o projeto mobile local é preciso estar com o projeto backend rodando na sua máquina. No read me do repositório você encontra o passo a passo.
+
 ## Getting Started
 
 O projeto faz o gerenciamento de dependências através do CocoaPods, e para gerá-las use o comando:
