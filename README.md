@@ -1,32 +1,72 @@
 # Minha saúde - Frontend Mobile iOS
 
-Frontend escrito em Swift para o projeto mobile Minha Saúde.
-Trata-se de um aplicativo de gerenciamento de saúde pessoal para o Trabalho de Conclusão de Curso Sistemas de Informação - Universidade do Sul de Santa Catarina/ UNISUL.
+Frontend written in Swift for the Minha Saúde mobile project.
+
+It is a personal health management application for the `Trabalho de Conclusão de Curso Sistemas de Informação - Universidade do Sul de Santa Catarina/ UNISUL`.
 
 ## Minha saúde - Backend
 
-Backend escrito em Go para o projeto neste [link]([https://github.com/laridtm/minha_saude](https://github.com/laridtm/minha_saude_backend/tree/main)
+Backend written in Go for the project in this [link](https://github.com/laridtm/minha_saude_backend)
 
-Para rodar o projeto mobile local é preciso estar com o projeto backend rodando na sua máquina. No read me do repositório você encontra o passo a passo.
+To run the mobile project locally you need to have the backend project running on your machine. In the read me of the repository you will find the step by step.
 
-## Getting Started
+### Installation
 
-O projeto faz o gerenciamento de dependências através do CocoaPods, e para gerá-las use o comando:
+The project manages dependencies through CocoaPods.
 
-```sh
+Simply clone this repository or download its zip file to your computer, install its dependencies and run the project in Xcode.
+
+```bash
+$ git clone git@github.com/laridtm/minha_saude
+$ cd minha_saude
 $ pod install
 ```
+### Architecture
 
-## Screenshots
+It was built using the Swift programming language and following the practices suggested by the `VIP/VIPER` organizational architecture. 
+
+VIPER is an acronym formed by the following words: View , Interactor, Presenter, Entity and Router. 
+
+The VIPER architecture is based on the Model-View-Controller (MVC) software development pattern, but adds an additional layer, the presenter. It suggests how to make the interactions between the layers proposed by Uncle Bob.
+
+![Captura de Tela 2023-05-31 às 17 19 12](https://github.com/laridtm/minha_saude/assets/55598696/d98a173a-d04a-4069-818a-e6c475c848ff)
+
+### Used Libraries
+
+* [**Cartography**](https://github.com/SciTools/cartopy)
+* [**SwiftGen**](https://github.com/SwiftGen/SwiftGen)
+* [**Moya**](https://github.com/Moya/Moya)
+
+### Screenshots
 
 | Acesso | Home | Empty State |  Perfil | 
 |-------------|-------------|-------------|-------------|
-|    ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 30](https://github.com/laridtm/minha_saude/assets/55598696/9dbf66dc-64ab-4b35-b9d0-f0c8afdbeb70)    |    ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 43](https://github.com/laridtm/minha_saude/assets/55598696/f8f54309-1bd6-491e-bd96-9b6c474e3da5)  | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 52 48](https://github.com/laridtm/minha_saude/assets/55598696/4571bea5-e667-4822-bf18-8bad699bb3b9) |   ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 50](https://github.com/laridtm/minha_saude/assets/55598696/ec51c6ea-b337-4e08-b013-6618be383d1c)    |
+| ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 30](https://github.com/laridtm/minha_saude/assets/55598696/cfe403ea-4125-4c05-a827-4734f09b45b7) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 43](https://github.com/laridtm/minha_saude/assets/55598696/1d4a24cd-2081-41fb-ba3a-0ed493bea0a3) |![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 52 48](https://github.com/laridtm/minha_saude/assets/55598696/b5a26726-7e94-42dc-89de-fce50f29212f) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 50](https://github.com/laridtm/minha_saude/assets/55598696/d4405303-8a59-41bf-b537-10c64722c352) |
 
 | Lembretes | Criação Lembretes | Edição Lembretes | 
 |-------------|-------------|-------------|
-|  ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 58](https://github.com/laridtm/minha_saude/assets/55598696/ed4e369c-ca7a-4db8-ba2e-4d17ce836aee)|  ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 04](https://github.com/laridtm/minha_saude/assets/55598696/68bbfcdb-8ed6-4100-8ec3-4b9ad04b9d4a)   |  ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 12](https://github.com/laridtm/minha_saude/assets/55598696/07392ef4-ba6f-42b8-b457-4fea62e22c82)  |
+|![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 58](https://github.com/laridtm/minha_saude/assets/55598696/af5a2f66-8a2e-42d0-890c-0df2f19a05b6) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 04](https://github.com/laridtm/minha_saude/assets/55598696/a5e6cc9c-5c22-4cdc-a9b4-7dc5cc6a0da9)| ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 12](https://github.com/laridtm/minha_saude/assets/55598696/2f069095-288e-469c-81ff-b5a0c5d8bcb5)|
 
 | Histórico | Criação Registro | Edição Registro | 
 |-------------|-------------|-------------|
-| ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 20](https://github.com/laridtm/minha_saude/assets/55598696/c94f6dc7-f117-4cc6-ab13-4f5ead091ee1) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 29](https://github.com/laridtm/minha_saude/assets/55598696/774af025-24f5-4780-a920-e5710dc594a0) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 38](https://github.com/laridtm/minha_saude/assets/55598696/839b8d42-54b9-483b-b09e-59121f41ce9c) |  
+| ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 20](https://github.com/laridtm/minha_saude/assets/55598696/98bd316c-eacd-46c6-9b03-6b31a6bac121) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 29](https://github.com/laridtm/minha_saude/assets/55598696/9a5033a7-bc95-4de8-bc85-462fb592cc43) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 38](https://github.com/laridtm/minha_saude/assets/55598696/444aa504-3e86-453c-81e8-c823d28d4410)| 
+
+### Next Steps
+
+As a form of continuity and improvement for the present work, it would be interesting to include the following functionalities:
+
+* List of doctors by specialty
+* Listing of doctors and clinics by proximity and/or region
+* Consultation of availability of medical care by specialty and price
+* Inclusion of mask for CPF
+* Login with email and password
+* Upload profile picture
+* Notification of Reminders
+* Attachment of exams and proof of vaccines
+* Develop tests for frontend and backend
+* Publishing on the Apple store
+
+### Author
+
+| [![Larissa](https://avatars.githubusercontent.com/u/55598696?v=4&s=80)](https://github.com/laridtm/) | [@laridtm](https://github.com/laridtm/) |
+| ------ | ------ |
