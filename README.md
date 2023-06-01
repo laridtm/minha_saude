@@ -39,15 +39,15 @@ The VIPER architecture is based on the Model-View-Controller (MVC) software deve
 
 ### Screenshots
 
-| Acesso | Home | Empty State |  Perfil | 
+| Access | Home | Empty State |  Profile | 
 |-------------|-------------|-------------|-------------|
 | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 30](https://github.com/laridtm/minha_saude/assets/55598696/cfe403ea-4125-4c05-a827-4734f09b45b7) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 43](https://github.com/laridtm/minha_saude/assets/55598696/1d4a24cd-2081-41fb-ba3a-0ed493bea0a3) |![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 52 48](https://github.com/laridtm/minha_saude/assets/55598696/b5a26726-7e94-42dc-89de-fce50f29212f) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 50](https://github.com/laridtm/minha_saude/assets/55598696/d4405303-8a59-41bf-b537-10c64722c352) |
 
-| Lembretes | Criação Lembretes | Edição Lembretes | 
+| Reminders | Create Reminder | Edit or Delete Reminder | 
 |-------------|-------------|-------------|
 |![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 20 58](https://github.com/laridtm/minha_saude/assets/55598696/af5a2f66-8a2e-42d0-890c-0df2f19a05b6) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 04](https://github.com/laridtm/minha_saude/assets/55598696/a5e6cc9c-5c22-4cdc-a9b4-7dc5cc6a0da9)| ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 12](https://github.com/laridtm/minha_saude/assets/55598696/2f069095-288e-469c-81ff-b5a0c5d8bcb5)|
 
-| Histórico | Criação Registro | Edição Registro | 
+| Medical History | Create Register | Edit or Delete Register | 
 |-------------|-------------|-------------|
 | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 20](https://github.com/laridtm/minha_saude/assets/55598696/98bd316c-eacd-46c6-9b03-6b31a6bac121) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 29](https://github.com/laridtm/minha_saude/assets/55598696/9a5033a7-bc95-4de8-bc85-462fb592cc43) | ![Simulator Screen Shot - iPhone 11 - 2023-05-06 at 16 21 38](https://github.com/laridtm/minha_saude/assets/55598696/444aa504-3e86-453c-81e8-c823d28d4410)| 
 
